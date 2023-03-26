@@ -50,7 +50,8 @@ namespace TripShip
             else
             {
                 dr.Close();
-                cmd.CommandText = "insert into travellers(travellerUname,Password,Name,Gender,Email,Mobno,Experience) Values('" + txtUsername.Text.Trim() + "','" + txtPassword.Text.Trim() + "','" + txtName.Text.Trim() + "','" + ddlGender.SelectedValue + "','" + txtEmail.Text.Trim() + "','" + txtNum.Text.Trim() + "')";
+                
+                cmd.CommandText = "insert into travellers(travellerUname,Password,Name,email,phone,Address) Values('" + txtUsername.Text.Trim() + "','" + txtPassword.Text.Trim() + "','" + txtName.Text.Trim() + "','" + txtEmail.Text.Trim() + "','" + txtNum.Text.Trim() + "','" + TextBox1.Text + "')";
                 cmd.ExecuteNonQuery();
               //  GridView1.DataBind();
                 clear();

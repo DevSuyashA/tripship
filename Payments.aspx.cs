@@ -41,7 +41,7 @@ namespace TripShip
 
             }
             cmd = con.CreateCommand();
-            cmd.CommandText = "select b.b_ID,b.endDnT,(DATEDIFF(hour,convert(varchar, b.startDnt,108), convert(varchar,b.endDnT,108))+1) duration, (s.Price*(DATEDIFF(hour,convert(varchar, b.startDnt,108), convert(varchar,b.endDnT,108))+1)) Amount,b.startDnt,p.petName,v.Name as vName,pb.Name as pbName from ((((Booking b INNER JOIN Pet p on b.pet_ID=p.pet_ID) INNER JOIN distributionCenters v on b.v_ID=v.distributerID) INNER JOIN PetBuddy pb on b.pb_ID=pb.pb_ID)INNER JOIN Service s on b.ServiceID=s.ServiceID) where b. = '" + Session["UserID"] + "' and b.payID = 0";
+            cmd.CommandText = "select b.b_ID,b.endDnT,(DATEDIFF(hour,convert(varchar, b.startDnt,108), convert(varchar,b.endDnT,108))+1) duration, (s.Price*(DATEDIFF(hour,convert(varchar, b.startDnt,108), convert(varchar,b.endDnT,108))+1)) Amount,b.startDnt,p.petName,v.Name as vName,pb.Name as pbName from ((((Booking b INNER JOIN Pet p on b.pet_ID=p.pet_ID) INNER JOIN distributionCenters v on b.v_ID=v.distributerID) INNER JOIN travellers pb on b.pb_ID=pb.pb_ID)INNER JOIN Service s on b.ServiceID=s.ServiceID) where b. = '" + Session["UserID"] + "' and b.payID = 0";
             SqlDataAdapter adapter = new SqlDataAdapter(cmd);
             DataTable dt = new DataTable();
             adapter.Fill(dt);

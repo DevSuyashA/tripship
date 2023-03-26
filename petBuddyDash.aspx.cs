@@ -12,7 +12,7 @@ using System.Configuration;
 
 namespace TripShip
 {
-    public partial class petBuddyDash : System.Web.UI.Page
+    public partial class travellersDash : System.Web.UI.Page
     {
         SqlCommand cmd;
         SqlDataAdapter sda;

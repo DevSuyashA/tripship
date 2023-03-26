@@ -87,30 +87,30 @@ namespace TripShip
         protected global::System.Web.UI.WebControls.View travellers;
 
         /// <summary>
-        /// rBuddy control.
+        /// rTravellerAvailable control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater rBuddy;
+        protected global::System.Web.UI.WebControls.Repeater rTravellerAvailable;
 
         /// <summary>
-        /// rBuddyOncoming control.
+        /// rTravellerAccepted control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater rBuddyOncoming;
+        protected global::System.Web.UI.WebControls.Repeater rTravellerAccepted;
 
         /// <summary>
-        /// rBuddyDone control.
+        /// rTravellerDone control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater rBuddyDone;
+        protected global::System.Web.UI.WebControls.Repeater rTravellerDone;
     }
 }

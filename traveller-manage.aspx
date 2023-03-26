@@ -15,7 +15,19 @@
                                     <h4>Enrolled Travellers</h4>
                                 </center>
                             </div>
-
+                            <%-- <Columns>
+                                        <asp:BoundField DataField="TravellersID" HeaderText="TravellersID"
+                                            ReadOnly="True" SortExpression="TravellersID" />
+                                        <asp:BoundField DataField="name" HeaderText="name" SortExpression="name" />
+                                        <asp:BoundField DataField="password" HeaderText="password" SortExpression="password" />
+                                        <asp:BoundField DataField="email" HeaderText="email"
+                                            SortExpression="email" />
+                                        <asp:BoundField DataField="Address" HeaderText="Address" SortExpression="Address" />
+                                        <asp:BoundField DataField="AdminID" HeaderText="AdminID"
+                                            SortExpression="AdminID" />
+                                        <asp:BoundField DataField="travellerUname" HeaderText="travellerUname"
+                                            SortExpression="travellerUname" />
+                                    </Columns> --%>
                             <div class="col">
                                 <asp:GridView class="table table-striped table-bordered" ID="GridView1" runat="server"
                                     AutoGenerateColumns="False" DataKeyNames="TravellersID" DataSourceID="SqlDataSource1">
@@ -35,7 +47,11 @@
                                 </asp:GridView>
                                 <asp:SqlDataSource ID="SqlDataSource1" runat="server"
                                     ConnectionString="<%$ ConnectionStrings:ConnectionString %>"
-                                    SelectCommand="SELECT * FROM [travellers]"></asp:SqlDataSource>
+                                    SelectCommand="SELECT * FROM [travellers] WHERE ([status] = @status)">
+                                    <SelectParameters>
+                                        <asp:Parameter DefaultValue="approved" Name="status" Type="String" />
+                                    </SelectParameters>
+                                </asp:SqlDataSource>
                             </div>
                             <div class="col-6">
                                 <asp:TextBox CssClass="form-control" ID="delNum" runat="server" placeholder="Enter ID"></asp:TextBox>
@@ -53,7 +69,7 @@
                 <div class="card">
                     <div class="card-body">
                         <h2>Approvals</h2>
-                        <asp:Repeater ID="rUser" runat="server">
+                        <asp:Repeater ID="rTraveller" runat="server" OnItemCommand="rTraveller_ItemCommand">
                             <HeaderTemplate>
                                 <table class="table data-table-export table-hover nowrap">
                                     <thead>
@@ -61,7 +77,7 @@
                                             <th class="table-plus">Request ID</th>
                                             <th>Traveller Name</th>
                                             <th>Contact</th>
-                                            <th>TnC</th>
+                                            <th>Email</th>
                                             <th>Accept</th>
                                             <th>Deny</th>
 
@@ -73,15 +89,15 @@
                             </HeaderTemplate>
                             <ItemTemplate>
                                 <tr>
-                                    <td class="table-plus"><%# Eval("b_ID") %> </td>
-                                    <td><%# Eval("petName") %></td>
-                                    <td><%# Eval("startDnT") %></td>
-                                    <td><%# Eval("endDnT") %></td>
-                                    <td><%# Eval("serviceType") %></td>
-                                    <td><%# Eval("vName") %></td>
-                                    <td><%# Eval("pbName") %></td>
+                                    <td class="table-plus"><%# Eval("TravellersID") %> </td>
+                                    <td><%# Eval("name") %></td>
+                                    <td><%# Eval("phone") %></td>
+                                    <td><%# Eval("email") %></td>
                                     <td>
-                                        <asp:LinkButton ID="lnkCancel" Text="Cancel" runat="server" CommandName="cancel" CommandArgument='<%# Eval("b_ID") %>' OnClientClick="return confirm('Do You want to Cancel?');"></asp:LinkButton>
+                                        <asp:LinkButton ID="lnkAccept" Text="Accept" runat="server" CommandName="accept" CommandArgument='<%# Eval("TravellersID") %>' OnClientClick="return confirm('Do You want to Approve?');"></asp:LinkButton>
+                                    </td>
+                                    <td>
+                                        <asp:LinkButton ID="lnkDeny" Text="Deny" runat="server" CommandName="deny" CommandArgument='<%# Eval("TravellersID") %>' OnClientClick="return confirm('Do You want to Deny?');"></asp:LinkButton>
                                     </td>
                                 </tr>
                             </ItemTemplate>

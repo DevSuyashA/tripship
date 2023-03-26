@@ -3,7 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div class="col-md-5">
+    <div class="col-md-12">
         <div class="card">
             <div class="card-body">
                 <div class="row">
@@ -52,29 +52,29 @@
                                 placeholder="" TextMode="Password"></asp:TextBox>
                         </div>
                     </div>
-                    <div class="col-md-6">
-                        <label>Gender</label>
-                        <asp:DropDownList CssClass="form-control" ID="ddlGender" runat="server">
-                            <asp:ListItem Text="Male" Value="M" />
-                            <asp:ListItem Text="Female" Value="F" />
-                        </asp:DropDownList>
 
-
-                    </div>
                 </div>
                 <div class="row">
                     <div class="col-md-6">
-                        <label>Contact Number</label>
+                        <label>Address</label>
                         <div class="form-group">
-                            <asp:TextBox CssClass="form-control" ID="txtNum" runat="server"
-                                placeholder="Enter Contact Number"></asp:TextBox>
+                            <asp:TextBox CssClass="form-control" ID="TextBox1" runat="server"
+                                placeholder="Enter Permanant Address" TextMode="MultiLine"></asp:TextBox>
                         </div>
                     </div>
+                <div class="col-md-6">
+                    <label>Contact Number</label>
+                    <div class="form-group">
+                        <asp:TextBox CssClass="form-control" ID="txtNum" runat="server"
+                            placeholder="Enter Contact Number"></asp:TextBox>
+                    </div>
+                </div>
                 </div>
                 <div class="row">
-                    <div class="col-md-6">
+                    <div class="col-md-12">
                         <div class="form-group">
-                            <asp:CheckBox ID="CheckBox1" runat="server" Text=" I agree to the terms & conditions." />
+                            <asp:CheckBox ID="CheckBox1" runat="server"  />
+                            <asp:Label ID="lblTerms" runat="server">I agree to the <a href="#">terms & conditions.</a></asp:Label>
                         </div>
                     </div>
                 </div>

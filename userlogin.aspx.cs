@@ -84,18 +84,33 @@ namespace TripShip
                 {
                     rdbUser.Checked = false;
                     rdbVet.Checked = false;
-                    SqlCommand cmd = new SqlCommand("select * from PetBuddy where travellerUname='" + TextBox1.Text.Trim() + "' AND Password='" + TextBox2.Text.Trim() + "'", con);
+                    SqlCommand cmd = new SqlCommand("select * from travellers where travellerUname='" + TextBox1.Text.Trim() + "' AND password='" + TextBox2.Text.Trim() + "'", con);
                     SqlDataReader dr = cmd.ExecuteReader();
                     //TextBox2.Text.Trim();
-                    if (dr.HasRows)
+                    if (dr.Read())
                     {
-                        while (dr.Read())
+                        if (dr.GetString(8) == "waiting")
                         {
-                            Session["role"] = "PetBuddy";
-                            Session["UserID"] = dr["pb_ID"];
-                            Session["username"] = dr["Name"];
-                            Response.Write("<script>alert('" + dr.GetValue(1).ToString() + "');</script>");
-                            Response.Redirect("homepage.aspx");
+                            dr.Close();
+                            Response.Write("<script>alert('Waiting for approval')</script>");
+                        }
+                        else if (dr.GetString(8) == "rejected")
+                        {
+                            dr.Close();
+                            Response.Write("<script>alert('Your application was rejected!')</script>");
+
+                        }
+                        else
+                        {
+
+                                                       
+                                Session["role"] = "traveller";
+                                Session["UserID"] = dr.GetInt32(0).ToString();
+                                Session["username"] = dr.GetString(1);
+                                Response.Write("<script>alert('" + dr.GetValue(1).ToString() + "');</script>");
+                                dr.Close();
+                                Response.Redirect("homepage.aspx");
+                            
                         }
                     }
                     else

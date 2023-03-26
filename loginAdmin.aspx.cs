@@ -35,8 +35,10 @@ namespace TripShip
                     while (dr.Read())
                     {
                         Response.Write("<script>alert('Successful login');</script>");
-                        Session["username"] = dr.GetValue(0).ToString();
-                        Session["fullname"] = dr.GetValue(2).ToString();
+                        Session["username"] = dr.GetValue(4).ToString();
+                        Session["fullname"] = dr.GetValue(3).ToString();
+                        Session["adminID"] = dr.GetValue(0).ToString();
+                        
                         Session["role"] = "admin";
                         //Session["status"] = dr.GetValue(10).ToString();
                     }

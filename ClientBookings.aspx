@@ -20,7 +20,7 @@
                                         <th>End Date and Time</th>
                                         <th>Service Type</th>
                                         <th>Vet Name</th>
-                                        <th>PetBuddy Name</th>
+                                        <th>travellers Name</th>
                                         <th>Cancel</th>
 
 
@@ -60,7 +60,7 @@
                                         <th>End Date and Time</th>
                                         <th>Service Type</th>
                                         <th>Vet Name</th>
-                                        <th>PetBuddy Name</th>
+                                        <th>travellers Name</th>
 
 
                                         <%--<th class="datatable-nosort">Action</th>--%>
@@ -95,7 +95,7 @@ CommandArgument='<%# Eval("b_ID") %>' OnClientClick="return confirm('Do You want
         <asp:View ID="Vet" runat="server">
             <div class="card-block table-border-style">
                 <div class="table-responsive">
-                    <asp:Repeater ID="rVet" runat="server" OnItemDataBound="rBuddyOncoming_ItemDataBound">
+                    <asp:Repeater ID="rVet" runat="server"  >
                         <HeaderTemplate>
                             <table class="table data-table-export table-hover nowrap">
                                 <thead>
@@ -142,7 +142,7 @@ CommandArgument='<%# Eval("b_ID") %>' OnClientClick="return confirm('Do You want
                         </FooterTemplate>
                     </asp:Repeater>
                     <h2>Completed Bookings</h2>
-                    <asp:Repeater ID="rVetCompletedBookings" runat="server" OnItemDataBound="rBuddyOncoming_ItemDataBound">
+                    <asp:Repeater ID="rVetCompletedBookings" runat="server"  >
                         <HeaderTemplate>
                             <table class="table data-table-export table-hover nowrap">
                                 <thead>
@@ -195,22 +195,16 @@ CommandArgument='<%# Eval("b_ID") %>' OnClientClick="return confirm('Do You want
             <h2>Available for Bookings</h2>
             <div class="card-block table-border-style">
                 <div class="table-responsive">
-                    <asp:Repeater ID="rBuddy" runat="server" OnItemCommand="rBuddy_ItemCommand">
+                    <asp:Repeater ID="rTravellerAvailable" runat="server"  OnItemCommand="rTravellerAvailable_ItemCommand"  >
                         <HeaderTemplate>
                             <table class="table data-table-export table-hover nowrap">
                                 <thead>
                                     <tr>
-                                        <th class="table-plus">Booking ID</th>
-                                        <th>Client Name</th>
-                                        <th>Pet Name</th>
-                                        <th>Pet Breed</th>
-                                        <th>Pet Age</th>
-                                        <th>Pet Type</th>
-                                        <th>Service Type</th>
-                                        <th>Address</th>
-                                        <th>Start Date and Time</th>
-
-                                        <th>End Date and Time</th>
+                                        <th class="table-plus">Tracking ID</th>
+                                        <th>Parcel Name</th>
+                                        <th>Weight</th>
+                                        <th>Volume</th>
+                                        <th>Destination</th>
                                         <th class="datatable-nosort">Action</th>
                                     </tr>
                                 </thead>
@@ -218,22 +212,16 @@ CommandArgument='<%# Eval("b_ID") %>' OnClientClick="return confirm('Do You want
                         </HeaderTemplate>
                         <ItemTemplate>
                             <tr>
-                                <td class="table-plus"><%# Eval("b_ID") %> </td>
-                                <td><%# Eval("cName") %></td>
-                                <td><%# Eval("pName") %></td>
-                                <td><%# Eval("pBreed") %></td>
-                                <td><%# Eval("pAge") %></td>
-                                <td><%# Eval("pType") %></td>
-                                <td><%# Eval("serviceType") %></td>
-                                <td><%# Eval("destAddress") %></td>
-                                <td><%# Eval("startDnT") %></td>
-                                <td><%# Eval("endDnT") %></td>
+                                <td class="table-plus"><%# Eval("TrackingID") %> </td>
+                                <td><%# Eval("parcelName") %></td>
+                                <td><%# Eval("weight") %></td>
+                                <td><%# Eval("Volume") %></td>
+                                <td><%# Eval("destDistributionCenter") %></td>
                                 <td>
                                     <asp:LinkButton ID="lnkaccept" Text="Accept" runat="server" CommandName="accept"
-                                        CommandArgument='<%# Eval("b_ID") %>' OnClientClick="return confirm('Do You want to Accept?');">
+                                        CommandArgument='<%# Eval("TrackingID") %>' OnClientClick="return confirm('Do You want to Accept?');">
                                     </asp:LinkButton>
                                 </td>
-
                             </tr>
                         </ItemTemplate>
                         <FooterTemplate>
@@ -244,42 +232,33 @@ CommandArgument='<%# Eval("b_ID") %>' OnClientClick="return confirm('Do You want
                 </div>
                 <div class="table-responsive">
                     <h3>Pending Bookings</h3>
-                    <asp:Repeater ID="rBuddyOncoming" runat="server" OnItemDataBound="rBuddyOncoming_ItemDataBound">
+                    <asp:Repeater ID="rTravellerAccepted" runat="server"  OnItemCommand="rTravellerAccepted_ItemCommand" >
                         <HeaderTemplate>
                             <table class="table data-table-export table-hover nowrap">
                                 <thead>
                                     <tr>
-                                        <th class="table-plus">Booking ID</th>
-                                        <th>Client Name</th>
-                                        <th>Pet Name</th>
-                                        <th>Pet Breed</th>
-                                        <th>Pet Age</th>
-                                        <th>Pet Type</th>
-                                        <th>Service Type</th>
-                                        <th>Address</th>
-                                        <th>Start Date and Time</th>
+                                        <th class="table-plus">Tracking ID</th>
+                                        <th>Parcel Name</th>
+                                        <th>Pickup From</th>
+                                        <th>Weight</th>
+                                        <th>Drop At</th>
+                                        <th>Change Status</th>
 
-                                        <th>End Date and Time</th>
-                                        <th>Payment Status</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                         </HeaderTemplate>
                         <ItemTemplate>
                             <tr>
-                                <td class="table-plus"><%# Eval("b_ID") %> </td>
-                                <td><%# Eval("cName") %></td>
-                                <td><%# Eval("pName") %></td>
-                                <td><%# Eval("pBreed") %></td>
-                                <td><%# Eval("pAge") %></td>
-                                <td><%# Eval("pType") %></td>
-                                <td><%# Eval("serviceType") %></td>
-                                <td><%# Eval("destAddress") %></td>
-                                <td><%# Eval("startDnT") %></td>
-                                <td><%# Eval("endDnT") %></td>
+                                <td class="table-plus"><%# Eval("TrackingID") %> </td>
+                                <td><%# Eval("parcelName") %></td>
+                                <td><%# Eval("sourceDistributionCenter") %></td>
+                                <td><%# Eval("weight") %></td>
+                                <td><%# Eval("destDistributionCenter") %></td>
                                 <td>
-                                    <asp:Label ID="lblStatus" runat="server" Text='<%# Eval("payID") %>'></asp:Label></td>
-
+                                    <asp:LinkButton ID="lnkEdit" Text="Edit" runat="server" CommandName="edit"
+                                        CommandArgument='<%# Eval("TrackingID") %>'></asp:LinkButton>
+                                </td>
                             </tr>
                         </ItemTemplate>
                         <FooterTemplate>
@@ -290,22 +269,15 @@ CommandArgument='<%# Eval("b_ID") %>' OnClientClick="return confirm('Do You want
                 </div>
                 <div class="table-responsive">
                     <h3>Completed Bookings</h3>
-                    <asp:Repeater ID="rBuddyDone" runat="server" OnItemDataBound="rBuddyOncoming_ItemDataBound">
+                    <asp:Repeater ID="rTravellerDone" runat="server">
                         <HeaderTemplate>
                             <table class="table data-table-export table-hover nowrap">
                                 <thead>
                                     <tr>
-                                        <th class="table-plus">Booking ID</th>
-                                        <th>Client Name</th>
-                                        <th>Pet Name</th>
-                                        <th>Pet Breed</th>
-                                        <th>Pet Age</th>
-                                        <th>Pet Type</th>
-                                        <th>Service Type</th>
-                                        <th>Address</th>
-                                        <th>Start Date and Time</th>
-
-                                        <th>End Date and Time</th>
+                                        <th class="table-plus">Tracking ID</th>
+                                        <th>Parcel Name</th>
+                                        <th>Dropped At</th>
+                                        <th>Date</th>
                                         <th>Payment Status</th>
                                     </tr>
                                 </thead>
@@ -313,18 +285,12 @@ CommandArgument='<%# Eval("b_ID") %>' OnClientClick="return confirm('Do You want
                         </HeaderTemplate>
                         <ItemTemplate>
                             <tr>
-                                <td class="table-plus"><%# Eval("b_ID") %> </td>
-                                <td><%# Eval("cName") %></td>
-                                <td><%# Eval("pName") %></td>
-                                <td><%# Eval("pBreed") %></td>
-                                <td><%# Eval("pAge") %></td>
-                                <td><%# Eval("pType") %></td>
-                                <td><%# Eval("serviceType") %></td>
-                                <td><%# Eval("destAddress") %></td>
-                                <td><%# Eval("startDnT") %></td>
-                                <td><%# Eval("endDnT") %></td>
-                                <td>
-                                    <asp:Label ID="lblStatus" runat="server" Text='<%# Eval("payID") %>'></asp:Label></td>
+                                <td class="table-plus"><%# Eval("TrackingID") %> </td>
+                                <td><%# Eval("parcelName") %></td>
+                                <td><%# Eval("destDistributionCenter") %></td>
+                                <td><%# Eval("endDateTime") %></td>
+                                <td><%# Eval("paymentStatus") %></td>
+
 
                             </tr>
                         </ItemTemplate>

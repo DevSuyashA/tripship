@@ -14,14 +14,13 @@ namespace TripShip
     {
         string strcon = ConfigurationManager.ConnectionStrings["con"].ConnectionString;
         SqlCommand cmd = new SqlCommand();
+        SqlDataAdapter sda;
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            getTraveller();
         }
 
-              
-
-        protected void Button3_Click(object sender, EventArgs e)
+        private void getTraveller()
         {
             SqlConnection con = new SqlConnection(strcon);
             if (con.State == ConnectionState.Closed)
@@ -30,10 +29,60 @@ namespace TripShip
 
             }
             cmd = con.CreateCommand();
-            cmd.CommandText = "DELETE from PetBuddy where pb_ID = '" + Convert.ToInt32( delNum.Text.Trim() ) + "'";
-            cmd.ExecuteNonQuery();
-            Response.Redirect("petManage.aspx");
+            cmd.CommandText = "SELECT * FROM travellers where status = 'waiting'";
+            sda=new SqlDataAdapter(cmd);
+            DataTable dt = new DataTable();
+            sda.Fill(dt);
+            rTraveller.DataSource=dt;
+            rTraveller.DataBind();
+            con.Close();
         }
 
+        protected void Button3_Click(object sender, EventArgs e)
+        {
+            
+            SqlConnection con = new SqlConnection(strcon);
+            if (con.State == ConnectionState.Closed)
+            {
+                con.Open();
+
+            }
+            cmd = con.CreateCommand();
+            cmd.CommandText = "DELETE from travellers where TravellersID = '" + Convert.ToInt32( delNum.Text.Trim() ) + "'";
+            cmd.ExecuteNonQuery();
+            Response.Redirect(Request.RawUrl);
+        }
+
+        protected void rTraveller_ItemCommand(object source, RepeaterCommandEventArgs e)
+        {
+            
+            if(e.CommandName.ToString() == "accept")
+            {
+                SqlConnection con = new SqlConnection(strcon);
+                if (con.State == ConnectionState.Closed)
+                {
+                    con.Open();
+
+                }
+                cmd = con.CreateCommand();
+                cmd.CommandText = "UPDATE travellers set status = 'approved',AdminID='" + Session["adminID"] +"' where TravellersID = "+e.CommandArgument;
+                cmd.ExecuteNonQuery();
+                Response.Redirect(Request.RawUrl);  
+                
+            }
+            else if (e.CommandName.ToString() == "deny")
+            {
+                SqlConnection con = new SqlConnection(strcon);
+                if (con.State == ConnectionState.Closed)
+                {
+                    con.Open();
+                }
+                cmd = con.CreateCommand();
+                cmd.CommandText = "UPDATE travellers set status = 'rejected',AdminID='" + Session["adminID"] + "' where TravellersID = " + e.CommandArgument;
+                cmd.ExecuteNonQuery();
+                Response.Redirect(Request.RawUrl);
+
+            }
+        }
     }
 }

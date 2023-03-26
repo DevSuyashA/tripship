@@ -22,6 +22,10 @@ namespace Library_Management_New
             }
             if (!Page.IsPostBack)
             {
+                if (Session["UserID"] == null)
+                {
+                    Response.Redirect("userlogin.aspx");
+                }
 
                     //getInfo();
                 //if (RadioButton1.Checked)
@@ -43,31 +47,32 @@ namespace Library_Management_New
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-            DateTime dateTime = DateTime.Today;
-            DateTime txtDate = Convert.ToDateTime(TextBox2.Text);
-            double rnd = (txtDate - dateTime).TotalDays;
-            if ((txtDate - dateTime).TotalDays > 0)
-            {
-                DateTime starttime = Convert.ToDateTime(TextBox9.Text);
-                DateTime endtime = Convert.ToDateTime(TextBox1.Text);
-                rnd = (endtime - starttime).TotalHours;
-                if ((endtime - starttime).TotalHours >= 1)
-                {
+            addNewJourney();
+            //DateTime dateTime = DateTime.Today;
+            //DateTime txtDate = Convert.ToDateTime(TextBox2.Text);
+            //double rnd = (txtDate - dateTime).TotalDays;
+            //if ((txtDate - dateTime).TotalDays > 0)
+            //{
+            //    DateTime starttime = Convert.ToDateTime(TextBox9.Text);
+            //    DateTime endtime = Convert.ToDateTime(TextBox1.Text);
+            //    rnd = (endtime - starttime).TotalHours;
+            //    if ((endtime - starttime).TotalHours >= 1)
+            //    {
 
-                    signUpNewMember();
-                }
-                else
-                {
-                    Response.Write("<script>alert('Book for minimum 1 hour')</script>");
-                }
-            }
-            else
-            {
-                Response.Write("<script>alert('Im not a time traveller! Choose Proper date 😊')</script>");
-            }
+            //        signUpNewMember();
+            //    }
+            //    else
+            //    {
+            //        Response.Write("<script>alert('Book for minimum 1 hour')</script>");
+            //    }
+            //}
+            //else
+            //{
+            //    Response.Write("<script>alert('Im not a time traveller! Choose Proper date 😊')</script>");
+            //}
         }
 
-        void signUpNewMember()
+        void addNewJourney()
         {
             //Response.Write("<script>alert('Testing');</script>");
             try
@@ -77,19 +82,9 @@ namespace Library_Management_New
                 {
                     con.Open();
                 }
-                string startdnt = TextBox2.Text.Trim() + " " + TextBox9.Text.Trim();
-                string enddnt = TextBox2.Text.Trim() + " " + TextBox1.Text.Trim();
-                SqlCommand cmd = new SqlCommand("INSERT INTO Booking(,pet_ID,destAddress,startDnt,endDnt,ServiceID) Values(@clientId,@pet_name,@full_address,@startTime,@endtime,@serviceId)", con);
-                cmd.Parameters.AddWithValue("@pet_name", DropDownList1.SelectedValue);
-                // cmd.Parameters.AddWithValue("@full_address", TextBox5.Text.Trim());
-                cmd.Parameters.AddWithValue("@endtime", enddnt);
-                cmd.Parameters.AddWithValue("@startTime", startdnt);
-                // cmd.Parameters.AddWithValue("@serviceId", DropDownList2.SelectedValue);
-                cmd.Parameters.AddWithValue("@clientId", Session["UserID"]);
-                cmd.ExecuteNonQuery();
-                con.Close();
-                Response.Write("<script>alert('Booking Succesfull');</script>");
-                Response.Redirect("ClientBookings.aspx");
+                SqlCommand cmd = new SqlCommand("INSERT INTO journeyLog(sourceCity,destinationCity,startDateTime,endDateTime,acceptableWeight,TravellersID) VALUES('"+DropDownList1.SelectedValue+"','"+DropDownList2.SelectedValue+"','"+TextBox2.Text+"','"+TextBox3.Text+"',"+txtWeight.Text+"," + Session["UserID"] +")", con);
+                cmd.ExecuteNonQuery();  
+                
             }
             catch (Exception ex)
             {

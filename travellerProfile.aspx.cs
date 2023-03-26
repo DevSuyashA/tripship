@@ -42,7 +42,7 @@ namespace Library_Management_New
             }
 
             cmd = con.CreateCommand();
-            cmd.CommandText = "select * from PetBuddy where pb_ID = '" + Session["UserID"] + "'";
+            cmd.CommandText = "select * from travellers where pb_ID = '" + Session["UserID"] + "'";
             SqlDataAdapter sda = new SqlDataAdapter(cmd);
             DataTable dr = new DataTable();
             sda.Fill(dr);
@@ -68,7 +68,7 @@ namespace Library_Management_New
             }
             cmd = con.CreateCommand();
             int id = Convert.ToInt32(Session["UserID"]);
-            cmd.CommandText = "UPDATE PetBuddy SET travellerUname=@c_username,Password=@Password,Name=@Name,Email=@Email,Mobno=@Mobno WHERE pb_ID = " + Session["UserID"];
+            cmd.CommandText = "UPDATE travellers SET travellerUname=@c_username,Password=@Password,Name=@Name,Email=@Email,Mobno=@Mobno WHERE pb_ID = " + Session["UserID"];
             cmd.Parameters.AddWithValue("@c_username", inputUsername.Text.Trim());
             cmd.Parameters.AddWithValue("@Password", inputPass.Text.Trim());
             cmd.Parameters.AddWithValue("@Name", inputName.Text.Trim());

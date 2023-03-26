@@ -34,7 +34,7 @@ namespace TripShip
             {
                 MultiView1.ActiveViewIndex = 0;
                 int clientid = Convert.ToInt32( Session["UserID"]);
-                SqlCommand cmd = new SqlCommand("select b.b_ID,b.startDnT, b.endDnt,s.Name as serviceType,p.petName,pb.Name as pbName,v.Name as vName from ((((Booking b INNER JOIN Pet p on b.pet_ID=p.pet_ID) INNER JOIN PetBuddy pb on b.pb_ID=pb.pb_ID) INNER JOIN distributionCenters v on b.v_ID=v.distributerID)INNER JOIN Service s on b.ServiceID=s.ServiceID) where ((DATEDIFF(day,convert(varchar,b.endDnt,101), convert(varchar,getdate(),101))< 0) and (DATEDIFF(hour,convert(varchar,b.endDnt,108), convert(varchar,getdate(),108))<0)) and b.  = '" + Session["UserID"] + "'", con);
+                SqlCommand cmd = new SqlCommand("select b.b_ID,b.startDnT, b.endDnt,s.Name as serviceType,p.petName,pb.Name as pbName,v.Name as vName from ((((Booking b INNER JOIN Pet p on b.pet_ID=p.pet_ID) INNER JOIN travellers pb on b.pb_ID=pb.pb_ID) INNER JOIN distributionCenters v on b.v_ID=v.distributerID)INNER JOIN Service s on b.ServiceID=s.ServiceID) where ((DATEDIFF(day,convert(varchar,b.endDnt,101), convert(varchar,getdate(),101))< 0) and (DATEDIFF(hour,convert(varchar,b.endDnt,108), convert(varchar,getdate(),108))<0)) and b.  = '" + Session["UserID"] + "'", con);
                 SqlDataAdapter sda = new SqlDataAdapter(cmd);
                 DataTable dt = new DataTable();
                 sda.Fill(dt);
@@ -45,7 +45,7 @@ namespace TripShip
 
 
                 rUser.DataBind();
-                 cmd = new SqlCommand("select b.b_ID,b.startDnT, b.endDnt,s.Name as serviceType,p.petName,pb.Name as pbName,v.Name as vName from ((((Booking b INNER JOIN Pet p on b.pet_ID=p.pet_ID) INNER JOIN PetBuddy pb on b.pb_ID=pb.pb_ID) INNER JOIN distributionCenters v on b.v_ID=v.distributerID)INNER JOIN Service s on b.ServiceID=s.ServiceID) where (DATEDIFF(day,convert(varchar,b.endDnt,101), convert(varchar,getdate(),101))> 0) and b.customerID = '" + Session["UserID"] + "'", con);
+                 cmd = new SqlCommand("select b.b_ID,b.startDnT, b.endDnt,s.Name as serviceType,p.petName,pb.Name as pbName,v.Name as vName from ((((Booking b INNER JOIN Pet p on b.pet_ID=p.pet_ID) INNER JOIN travellers pb on b.pb_ID=pb.pb_ID) INNER JOIN distributionCenters v on b.v_ID=v.distributerID)INNER JOIN Service s on b.ServiceID=s.ServiceID) where (DATEDIFF(day,convert(varchar,b.endDnt,101), convert(varchar,getdate(),101))> 0) and b.customerID = '" + Session["UserID"] + "'", con);
                  sda = new SqlDataAdapter(cmd);
                  dt = new DataTable();
                 sda.Fill(dt);
@@ -75,27 +75,27 @@ namespace TripShip
                 rVetCompletedBookings.DataBind();
 
             }
-            else if (Session["role"].ToString() == "PetBuddy")
+            else if (Session["role"].ToString() == "traveller")
             {
                 MultiView1.ActiveViewIndex = 2;
-                SqlCommand cmd = new SqlCommand("select b.b_ID,b.destAddress,b.startDnt,b.endDnt,c.Name as cName,p.petName as pName,p.Breed as pBreed,p.Age as pAge, p.petType as pType,s.Name as serviceType from (((Booking b INNER JOIN Client c on b.customerID=c.customerID) INNER JOIN Pet p on b.pet_ID=p.pet_ID) INNER JOIN Service s on b.ServiceID=s.ServiceID) where b.pb_ID = 0 and b.v_ID = 0 ", con);
+                SqlCommand cmd = new SqlCommand("SELECT p.* FROM parcelTracking p INNER JOIN journeyLog j on p.sourceCity=j.sourceCity and p.destCity  = j.destinationCity where p.journeyID=0 and DATEDIFF(day,p.maxDate,j.endDateTime)>1", con);
                 SqlDataAdapter sda = new SqlDataAdapter(cmd);
                 DataTable dt = new DataTable();
                 sda.Fill(dt);
-                rBuddy.DataSource = dt;
-                rBuddy.DataBind();
-                cmd = new SqlCommand("select b.b_ID,b.destAddress,b.payID,b.startDnt,b.endDnt,c.Name as cName,p.petName as pName,p.Breed as pBreed,p.Age as pAge, p.petType as pType,s.Name as serviceType from (((Booking b INNER JOIN Client c on b.customerID=c.customerID) INNER JOIN Pet p on b.pet_ID=p.pet_ID) INNER JOIN Service s on b.ServiceID=s.ServiceID) where ((DATEDIFF(day,convert(varchar,b.endDnt,101), convert(varchar,getdate(),101))< 0) and (DATEDIFF(hour,convert(varchar,b.endDnt,108), convert(varchar,getdate(),108))<0)) and  b.pb_ID = '" + Session["UserID"] + "'", con);
-                 sda = new SqlDataAdapter(cmd);
-                dt = new DataTable();
-                sda.Fill(dt);
-                rBuddyOncoming.DataSource = dt;
-                rBuddyOncoming.DataBind();
-                cmd = new SqlCommand("select b.b_ID,b.destAddress,b.payID,b.startDnt,b.endDnt,c.Name as cName,p.petName as pName,p.Breed as pBreed,p.Age as pAge, p.petType as pType,s.Name as serviceType from (((Booking b INNER JOIN Client c on b.customerID=c.customerID) INNER JOIN Pet p on b.pet_ID=p.pet_ID) INNER JOIN Service s on b.ServiceID=s.ServiceID) where (DATEDIFF(day,convert(varchar,b.endDnt,101), convert(varchar,getdate(),101))> 0) and  b.pb_ID = '" + Session["UserID"] + "'", con);
+                rTravellerAvailable.DataSource = dt;
+                rTravellerAvailable.DataBind();
+                cmd = new SqlCommand("SELECT p.* FROM parcelTracking p INNER JOIN journeyLog j on p.journeyID = j.journeyID where j.TravellersID=" + Session["UsreID"]+" and not p.parcelStatus = 'waiting' and not p.parcelStatus = 'delivered'", con);
                 sda = new SqlDataAdapter(cmd);
                 dt = new DataTable();
                 sda.Fill(dt);
-                rBuddyDone.DataSource = dt;
-                rBuddyDone.DataBind();
+                rTravellerAccepted.DataSource = dt;
+                rTravellerAccepted.DataBind();
+                cmd = new SqlCommand("SELECT p.*,j.endDateTime FROM parcelTracking p inner join journeyLog j on p.journeyID= j.journeyID where ", con);
+                sda = new SqlDataAdapter(cmd);
+                dt = new DataTable();
+                sda.Fill(dt);
+                rTravellerDone.DataSource = dt;
+                rTravellerDone.DataBind();
 
             }
 
@@ -147,6 +147,16 @@ namespace TripShip
                 cmd.ExecuteNonQuery();
                 Response.Redirect("ClientBookings.aspx");
             }
+        }
+
+        protected void rTravellerAvailable_ItemCommand(object source, RepeaterCommandEventArgs e)
+        {
+
+        }
+
+        protected void rTravellerAccepted_ItemCommand(object source, RepeaterCommandEventArgs e)
+        {
+
         }
     }
 }

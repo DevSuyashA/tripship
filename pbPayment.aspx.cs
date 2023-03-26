@@ -23,7 +23,7 @@ namespace TripShip
 
             }
             cmd = con.CreateCommand();
-            if (Session["role"].Equals("PetBuddy")){
+            if (Session["role"].Equals("travellers")){
                 cmd.CommandText = "SELECT p.TrTime, p.Amount, pet.petName, c.Name AS Client, b.b_ID from (((booking b INNER JOIN payment p on b.payID=p.payID) INNER JOIN client c on b.=c.customerID)INNER JOIN pet pet on b.pet_ID=pet.pet_ID) where b.pb_ID='" + Session["UserID"] + "'";
 
             }

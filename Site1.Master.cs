@@ -61,7 +61,7 @@ namespace TripShip
                         LinkButton11.Visible = false; // author management link button
                         LinkButton12.Visible = false;
                     }
-                    else if (Session["role"].ToString() == "PetBuddy")
+                    else if (Session["role"].ToString() == "traveller")
                     {
                         LinkButton6.Visible = false;
                         LinkButton1.Visible = false; // user login link button
@@ -136,7 +136,7 @@ namespace TripShip
                 {
                     Response.Redirect("vetProfile.aspx");
                 }
-                else if (Session["role"].ToString() == "PetBuddy")
+                else if (Session["role"].ToString() == "travellers")
                 {
                     Response.Redirect("travellerProfile.aspx");
                 }

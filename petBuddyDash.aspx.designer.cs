@@ -11,7 +11,7 @@ namespace TripShip
 {
 
 
-    public partial class petBuddyDash
+    public partial class travellersDash
     {
 
         /// <summary>
