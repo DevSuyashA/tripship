@@ -1,0 +1,354 @@
+D:\Library Management New\bin\Library Management New.dll.config
+D:\Library Management New\bin\Library Management New.dll
+D:\Library Management New\bin\Library Management New.pdb
+D:\Library Management New\bin\roslyn\csc.exe
+D:\Library Management New\bin\roslyn\csc.exe.config
+D:\Library Management New\bin\roslyn\csc.rsp
+D:\Library Management New\bin\roslyn\csi.exe
+D:\Library Management New\bin\roslyn\csi.exe.config
+D:\Library Management New\bin\roslyn\csi.rsp
+D:\Library Management New\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\Library Management New\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\Library Management New\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+D:\Library Management New\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\Library Management New\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+D:\Library Management New\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\Library Management New\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\Library Management New\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+D:\Library Management New\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+D:\Library Management New\bin\roslyn\Microsoft.Managed.Core.targets
+D:\Library Management New\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\Library Management New\bin\roslyn\Microsoft.Win32.Primitives.dll
+D:\Library Management New\bin\roslyn\System.AppContext.dll
+D:\Library Management New\bin\roslyn\System.Collections.Immutable.dll
+D:\Library Management New\bin\roslyn\System.Console.dll
+D:\Library Management New\bin\roslyn\System.Diagnostics.DiagnosticSource.dll
+D:\Library Management New\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+D:\Library Management New\bin\roslyn\System.Diagnostics.StackTrace.dll
+D:\Library Management New\bin\roslyn\System.Globalization.Calendars.dll
+D:\Library Management New\bin\roslyn\System.IO.Compression.dll
+D:\Library Management New\bin\roslyn\System.IO.Compression.ZipFile.dll
+D:\Library Management New\bin\roslyn\System.IO.FileSystem.dll
+D:\Library Management New\bin\roslyn\System.IO.FileSystem.Primitives.dll
+D:\Library Management New\bin\roslyn\System.Net.Http.dll
+D:\Library Management New\bin\roslyn\System.Net.Sockets.dll
+D:\Library Management New\bin\roslyn\System.Reflection.Metadata.dll
+D:\Library Management New\bin\roslyn\System.Runtime.InteropServices.RuntimeInformation.dll
+D:\Library Management New\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+D:\Library Management New\bin\roslyn\System.Security.Cryptography.Encoding.dll
+D:\Library Management New\bin\roslyn\System.Security.Cryptography.Primitives.dll
+D:\Library Management New\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+D:\Library Management New\bin\roslyn\System.Text.Encoding.CodePages.dll
+D:\Library Management New\bin\roslyn\System.Threading.Tasks.Extensions.dll
+D:\Library Management New\bin\roslyn\System.ValueTuple.dll
+D:\Library Management New\bin\roslyn\System.Xml.ReaderWriter.dll
+D:\Library Management New\bin\roslyn\System.Xml.XmlDocument.dll
+D:\Library Management New\bin\roslyn\System.Xml.XPath.dll
+D:\Library Management New\bin\roslyn\System.Xml.XPath.XDocument.dll
+D:\Library Management New\bin\roslyn\vbc.exe
+D:\Library Management New\bin\roslyn\vbc.exe.config
+D:\Library Management New\bin\roslyn\vbc.rsp
+D:\Library Management New\bin\roslyn\VBCSCompiler.exe
+D:\Library Management New\bin\roslyn\VBCSCompiler.exe.config
+D:\Library Management New\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\Library Management New\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\Library Management New\obj\Debug\Library Management New.csproj.AssemblyReference.cache
+D:\Library Management New\obj\Debug\Library Management New.csproj.CoreCompileInputs.cache
+D:\Library Management New\obj\Debug\Library Management New.csproj.CopyComplete
+D:\Library Management New\obj\Debug\Library Management New.dll
+D:\Library Management New\obj\Debug\Library Management New.pdb
+J:\Project\Library Management New\bin\Library Management New.dll.config
+J:\Project\Library Management New\bin\Library Management New.dll
+J:\Project\Library Management New\bin\Library Management New.pdb
+J:\Project\Library Management New\bin\roslyn\csc.exe
+J:\Project\Library Management New\bin\roslyn\csc.exe.config
+J:\Project\Library Management New\bin\roslyn\csc.rsp
+J:\Project\Library Management New\bin\roslyn\csi.exe
+J:\Project\Library Management New\bin\roslyn\csi.exe.config
+J:\Project\Library Management New\bin\roslyn\csi.rsp
+J:\Project\Library Management New\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+J:\Project\Library Management New\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+J:\Project\Library Management New\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+J:\Project\Library Management New\bin\roslyn\Microsoft.CodeAnalysis.dll
+J:\Project\Library Management New\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+J:\Project\Library Management New\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+J:\Project\Library Management New\bin\roslyn\Microsoft.CSharp.Core.targets
+J:\Project\Library Management New\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+J:\Project\Library Management New\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+J:\Project\Library Management New\bin\roslyn\Microsoft.Managed.Core.targets
+J:\Project\Library Management New\bin\roslyn\Microsoft.VisualBasic.Core.targets
+J:\Project\Library Management New\bin\roslyn\Microsoft.Win32.Primitives.dll
+J:\Project\Library Management New\bin\roslyn\System.AppContext.dll
+J:\Project\Library Management New\bin\roslyn\System.Collections.Immutable.dll
+J:\Project\Library Management New\bin\roslyn\System.Console.dll
+J:\Project\Library Management New\bin\roslyn\System.Diagnostics.DiagnosticSource.dll
+J:\Project\Library Management New\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+J:\Project\Library Management New\bin\roslyn\System.Diagnostics.StackTrace.dll
+J:\Project\Library Management New\bin\roslyn\System.Globalization.Calendars.dll
+J:\Project\Library Management New\bin\roslyn\System.IO.Compression.dll
+J:\Project\Library Management New\bin\roslyn\System.IO.Compression.ZipFile.dll
+J:\Project\Library Management New\bin\roslyn\System.IO.FileSystem.dll
+J:\Project\Library Management New\bin\roslyn\System.IO.FileSystem.Primitives.dll
+J:\Project\Library Management New\bin\roslyn\System.Net.Http.dll
+J:\Project\Library Management New\bin\roslyn\System.Net.Sockets.dll
+J:\Project\Library Management New\bin\roslyn\System.Reflection.Metadata.dll
+J:\Project\Library Management New\bin\roslyn\System.Runtime.InteropServices.RuntimeInformation.dll
+J:\Project\Library Management New\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+J:\Project\Library Management New\bin\roslyn\System.Security.Cryptography.Encoding.dll
+J:\Project\Library Management New\bin\roslyn\System.Security.Cryptography.Primitives.dll
+J:\Project\Library Management New\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+J:\Project\Library Management New\bin\roslyn\System.Text.Encoding.CodePages.dll
+J:\Project\Library Management New\bin\roslyn\System.Threading.Tasks.Extensions.dll
+J:\Project\Library Management New\bin\roslyn\System.ValueTuple.dll
+J:\Project\Library Management New\bin\roslyn\System.Xml.ReaderWriter.dll
+J:\Project\Library Management New\bin\roslyn\System.Xml.XmlDocument.dll
+J:\Project\Library Management New\bin\roslyn\System.Xml.XPath.dll
+J:\Project\Library Management New\bin\roslyn\System.Xml.XPath.XDocument.dll
+J:\Project\Library Management New\bin\roslyn\vbc.exe
+J:\Project\Library Management New\bin\roslyn\vbc.exe.config
+J:\Project\Library Management New\bin\roslyn\vbc.rsp
+J:\Project\Library Management New\bin\roslyn\VBCSCompiler.exe
+J:\Project\Library Management New\bin\roslyn\VBCSCompiler.exe.config
+J:\Project\Library Management New\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+J:\Project\Library Management New\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+J:\Project\Library Management New\obj\Debug\Library Management New.csproj.AssemblyReference.cache
+J:\Project\Library Management New\obj\Debug\Library Management New.csproj.CoreCompileInputs.cache
+J:\Project\Library Management New\obj\Debug\Library Management New.csproj.CopyComplete
+J:\Project\Library Management New\obj\Debug\Library Management New.dll
+J:\Project\Library Management New\obj\Debug\Library Management New.pdb
+C:\Users\Kabir_Vats\Desktop\Library Management New\obj\Debug\Library Management New.csproj.AssemblyReference.cache
+C:\Users\Kabir_Vats\Desktop\Library Management New\obj\Debug\Library Management New.csproj.CoreCompileInputs.cache
+C:\Users\Kabir_Vats\Desktop\Library Management New\obj\Debug\Library Management New.dll
+C:\Users\Kabir_Vats\Desktop\Library Management New\obj\Debug\Library Management New.pdb
+C:\Users\Kabir_Vats\Desktop\Library Management New\bin\Library Management New.dll.config
+C:\Users\Kabir_Vats\Desktop\Library Management New\bin\Library Management New.dll
+C:\Users\Kabir_Vats\Desktop\Library Management New\bin\Library Management New.pdb
+C:\Users\Kabir_Vats\Desktop\Library Management New\bin\roslyn\csc.exe
+C:\Users\Kabir_Vats\Desktop\Library Management New\bin\roslyn\csc.exe.config
+C:\Users\Kabir_Vats\Desktop\Library Management New\bin\roslyn\csc.rsp
+C:\Users\Kabir_Vats\Desktop\Library Management New\bin\roslyn\csi.exe
+C:\Users\Kabir_Vats\Desktop\Library Management New\bin\roslyn\csi.exe.config
+C:\Users\Kabir_Vats\Desktop\Library Management New\bin\roslyn\csi.rsp
+C:\Users\Kabir_Vats\Desktop\Library Management New\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\Kabir_Vats\Desktop\Library Management New\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\Kabir_Vats\Desktop\Library Management New\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+C:\Users\Kabir_Vats\Desktop\Library Management New\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\Kabir_Vats\Desktop\Library Management New\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+C:\Users\Kabir_Vats\Desktop\Library Management New\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\Kabir_Vats\Desktop\Library Management New\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\Kabir_Vats\Desktop\Library Management New\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+C:\Users\Kabir_Vats\Desktop\Library Management New\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+C:\Users\Kabir_Vats\Desktop\Library Management New\bin\roslyn\Microsoft.Managed.Core.targets
+C:\Users\Kabir_Vats\Desktop\Library Management New\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\Kabir_Vats\Desktop\Library Management New\bin\roslyn\Microsoft.Win32.Primitives.dll
+C:\Users\Kabir_Vats\Desktop\Library Management New\bin\roslyn\System.AppContext.dll
+C:\Users\Kabir_Vats\Desktop\Library Management New\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\Kabir_Vats\Desktop\Library Management New\bin\roslyn\System.Console.dll
+C:\Users\Kabir_Vats\Desktop\Library Management New\bin\roslyn\System.Diagnostics.DiagnosticSource.dll
+C:\Users\Kabir_Vats\Desktop\Library Management New\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+C:\Users\Kabir_Vats\Desktop\Library Management New\bin\roslyn\System.Diagnostics.StackTrace.dll
+C:\Users\Kabir_Vats\Desktop\Library Management New\bin\roslyn\System.Globalization.Calendars.dll
+C:\Users\Kabir_Vats\Desktop\Library Management New\bin\roslyn\System.IO.Compression.dll
+C:\Users\Kabir_Vats\Desktop\Library Management New\bin\roslyn\System.IO.Compression.ZipFile.dll
+C:\Users\Kabir_Vats\Desktop\Library Management New\bin\roslyn\System.IO.FileSystem.dll
+C:\Users\Kabir_Vats\Desktop\Library Management New\bin\roslyn\System.IO.FileSystem.Primitives.dll
+C:\Users\Kabir_Vats\Desktop\Library Management New\bin\roslyn\System.Net.Http.dll
+C:\Users\Kabir_Vats\Desktop\Library Management New\bin\roslyn\System.Net.Sockets.dll
+C:\Users\Kabir_Vats\Desktop\Library Management New\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\Kabir_Vats\Desktop\Library Management New\bin\roslyn\System.Runtime.InteropServices.RuntimeInformation.dll
+C:\Users\Kabir_Vats\Desktop\Library Management New\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+C:\Users\Kabir_Vats\Desktop\Library Management New\bin\roslyn\System.Security.Cryptography.Encoding.dll
+C:\Users\Kabir_Vats\Desktop\Library Management New\bin\roslyn\System.Security.Cryptography.Primitives.dll
+C:\Users\Kabir_Vats\Desktop\Library Management New\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+C:\Users\Kabir_Vats\Desktop\Library Management New\bin\roslyn\System.Text.Encoding.CodePages.dll
+C:\Users\Kabir_Vats\Desktop\Library Management New\bin\roslyn\System.Threading.Tasks.Extensions.dll
+C:\Users\Kabir_Vats\Desktop\Library Management New\bin\roslyn\System.ValueTuple.dll
+C:\Users\Kabir_Vats\Desktop\Library Management New\bin\roslyn\System.Xml.ReaderWriter.dll
+C:\Users\Kabir_Vats\Desktop\Library Management New\bin\roslyn\System.Xml.XmlDocument.dll
+C:\Users\Kabir_Vats\Desktop\Library Management New\bin\roslyn\System.Xml.XPath.dll
+C:\Users\Kabir_Vats\Desktop\Library Management New\bin\roslyn\System.Xml.XPath.XDocument.dll
+C:\Users\Kabir_Vats\Desktop\Library Management New\bin\roslyn\vbc.exe
+C:\Users\Kabir_Vats\Desktop\Library Management New\bin\roslyn\vbc.exe.config
+C:\Users\Kabir_Vats\Desktop\Library Management New\bin\roslyn\vbc.rsp
+C:\Users\Kabir_Vats\Desktop\Library Management New\bin\roslyn\VBCSCompiler.exe
+C:\Users\Kabir_Vats\Desktop\Library Management New\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\Kabir_Vats\Desktop\Library Management New\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\Kabir_Vats\Desktop\Library Management New\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\Kabir_Vats\Desktop\Library Management New\obj\Debug\Library Management New.csproj.CopyComplete
+J:\vPets 31 OCT\Library Management New\bin\Library Management New.dll.config
+J:\vPets 31 OCT\Library Management New\bin\Library Management New.dll
+J:\vPets 31 OCT\Library Management New\bin\Library Management New.pdb
+J:\vPets 31 OCT\Library Management New\bin\roslyn\csc.exe
+J:\vPets 31 OCT\Library Management New\bin\roslyn\csc.exe.config
+J:\vPets 31 OCT\Library Management New\bin\roslyn\csc.rsp
+J:\vPets 31 OCT\Library Management New\bin\roslyn\csi.exe
+J:\vPets 31 OCT\Library Management New\bin\roslyn\csi.exe.config
+J:\vPets 31 OCT\Library Management New\bin\roslyn\csi.rsp
+J:\vPets 31 OCT\Library Management New\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+J:\vPets 31 OCT\Library Management New\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+J:\vPets 31 OCT\Library Management New\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+J:\vPets 31 OCT\Library Management New\bin\roslyn\Microsoft.CodeAnalysis.dll
+J:\vPets 31 OCT\Library Management New\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+J:\vPets 31 OCT\Library Management New\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+J:\vPets 31 OCT\Library Management New\bin\roslyn\Microsoft.CSharp.Core.targets
+J:\vPets 31 OCT\Library Management New\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+J:\vPets 31 OCT\Library Management New\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+J:\vPets 31 OCT\Library Management New\bin\roslyn\Microsoft.Managed.Core.targets
+J:\vPets 31 OCT\Library Management New\bin\roslyn\Microsoft.VisualBasic.Core.targets
+J:\vPets 31 OCT\Library Management New\bin\roslyn\Microsoft.Win32.Primitives.dll
+J:\vPets 31 OCT\Library Management New\bin\roslyn\System.AppContext.dll
+J:\vPets 31 OCT\Library Management New\bin\roslyn\System.Collections.Immutable.dll
+J:\vPets 31 OCT\Library Management New\bin\roslyn\System.Console.dll
+J:\vPets 31 OCT\Library Management New\bin\roslyn\System.Diagnostics.DiagnosticSource.dll
+J:\vPets 31 OCT\Library Management New\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+J:\vPets 31 OCT\Library Management New\bin\roslyn\System.Diagnostics.StackTrace.dll
+J:\vPets 31 OCT\Library Management New\bin\roslyn\System.Globalization.Calendars.dll
+J:\vPets 31 OCT\Library Management New\bin\roslyn\System.IO.Compression.dll
+J:\vPets 31 OCT\Library Management New\bin\roslyn\System.IO.Compression.ZipFile.dll
+J:\vPets 31 OCT\Library Management New\bin\roslyn\System.IO.FileSystem.dll
+J:\vPets 31 OCT\Library Management New\bin\roslyn\System.IO.FileSystem.Primitives.dll
+J:\vPets 31 OCT\Library Management New\bin\roslyn\System.Net.Http.dll
+J:\vPets 31 OCT\Library Management New\bin\roslyn\System.Net.Sockets.dll
+J:\vPets 31 OCT\Library Management New\bin\roslyn\System.Reflection.Metadata.dll
+J:\vPets 31 OCT\Library Management New\bin\roslyn\System.Runtime.InteropServices.RuntimeInformation.dll
+J:\vPets 31 OCT\Library Management New\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+J:\vPets 31 OCT\Library Management New\bin\roslyn\System.Security.Cryptography.Encoding.dll
+J:\vPets 31 OCT\Library Management New\bin\roslyn\System.Security.Cryptography.Primitives.dll
+J:\vPets 31 OCT\Library Management New\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+J:\vPets 31 OCT\Library Management New\bin\roslyn\System.Text.Encoding.CodePages.dll
+J:\vPets 31 OCT\Library Management New\bin\roslyn\System.Threading.Tasks.Extensions.dll
+J:\vPets 31 OCT\Library Management New\bin\roslyn\System.ValueTuple.dll
+J:\vPets 31 OCT\Library Management New\bin\roslyn\System.Xml.ReaderWriter.dll
+J:\vPets 31 OCT\Library Management New\bin\roslyn\System.Xml.XmlDocument.dll
+J:\vPets 31 OCT\Library Management New\bin\roslyn\System.Xml.XPath.dll
+J:\vPets 31 OCT\Library Management New\bin\roslyn\System.Xml.XPath.XDocument.dll
+J:\vPets 31 OCT\Library Management New\bin\roslyn\vbc.exe
+J:\vPets 31 OCT\Library Management New\bin\roslyn\vbc.exe.config
+J:\vPets 31 OCT\Library Management New\bin\roslyn\vbc.rsp
+J:\vPets 31 OCT\Library Management New\bin\roslyn\VBCSCompiler.exe
+J:\vPets 31 OCT\Library Management New\bin\roslyn\VBCSCompiler.exe.config
+J:\vPets 31 OCT\Library Management New\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+J:\vPets 31 OCT\Library Management New\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+J:\vPets 31 OCT\Library Management New\obj\Debug\Library Management New.csproj.AssemblyReference.cache
+J:\vPets 31 OCT\Library Management New\obj\Debug\Library Management New.csproj.CoreCompileInputs.cache
+J:\vPets 31 OCT\Library Management New\obj\Debug\Library Management New.csproj.CopyComplete
+J:\vPets 31 OCT\Library Management New\obj\Debug\Library Management New.dll
+J:\vPets 31 OCT\Library Management New\obj\Debug\Library Management New.pdb
+J:\Project\vPets\bin\Library Management New.dll.config
+J:\Project\vPets\bin\Library Management New.dll
+J:\Project\vPets\bin\Library Management New.pdb
+J:\Project\vPets\bin\roslyn\csc.exe
+J:\Project\vPets\bin\roslyn\csc.exe.config
+J:\Project\vPets\bin\roslyn\csc.rsp
+J:\Project\vPets\bin\roslyn\csi.exe
+J:\Project\vPets\bin\roslyn\csi.exe.config
+J:\Project\vPets\bin\roslyn\csi.rsp
+J:\Project\vPets\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+J:\Project\vPets\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+J:\Project\vPets\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+J:\Project\vPets\bin\roslyn\Microsoft.CodeAnalysis.dll
+J:\Project\vPets\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+J:\Project\vPets\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+J:\Project\vPets\bin\roslyn\Microsoft.CSharp.Core.targets
+J:\Project\vPets\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+J:\Project\vPets\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+J:\Project\vPets\bin\roslyn\Microsoft.Managed.Core.targets
+J:\Project\vPets\bin\roslyn\Microsoft.VisualBasic.Core.targets
+J:\Project\vPets\bin\roslyn\Microsoft.Win32.Primitives.dll
+J:\Project\vPets\bin\roslyn\System.AppContext.dll
+J:\Project\vPets\bin\roslyn\System.Collections.Immutable.dll
+J:\Project\vPets\bin\roslyn\System.Console.dll
+J:\Project\vPets\bin\roslyn\System.Diagnostics.DiagnosticSource.dll
+J:\Project\vPets\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+J:\Project\vPets\bin\roslyn\System.Diagnostics.StackTrace.dll
+J:\Project\vPets\bin\roslyn\System.Globalization.Calendars.dll
+J:\Project\vPets\bin\roslyn\System.IO.Compression.dll
+J:\Project\vPets\bin\roslyn\System.IO.Compression.ZipFile.dll
+J:\Project\vPets\bin\roslyn\System.IO.FileSystem.dll
+J:\Project\vPets\bin\roslyn\System.IO.FileSystem.Primitives.dll
+J:\Project\vPets\bin\roslyn\System.Net.Http.dll
+J:\Project\vPets\bin\roslyn\System.Net.Sockets.dll
+J:\Project\vPets\bin\roslyn\System.Reflection.Metadata.dll
+J:\Project\vPets\bin\roslyn\System.Runtime.InteropServices.RuntimeInformation.dll
+J:\Project\vPets\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+J:\Project\vPets\bin\roslyn\System.Security.Cryptography.Encoding.dll
+J:\Project\vPets\bin\roslyn\System.Security.Cryptography.Primitives.dll
+J:\Project\vPets\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+J:\Project\vPets\bin\roslyn\System.Text.Encoding.CodePages.dll
+J:\Project\vPets\bin\roslyn\System.Threading.Tasks.Extensions.dll
+J:\Project\vPets\bin\roslyn\System.ValueTuple.dll
+J:\Project\vPets\bin\roslyn\System.Xml.ReaderWriter.dll
+J:\Project\vPets\bin\roslyn\System.Xml.XmlDocument.dll
+J:\Project\vPets\bin\roslyn\System.Xml.XPath.dll
+J:\Project\vPets\bin\roslyn\System.Xml.XPath.XDocument.dll
+J:\Project\vPets\bin\roslyn\vbc.exe
+J:\Project\vPets\bin\roslyn\vbc.exe.config
+J:\Project\vPets\bin\roslyn\vbc.rsp
+J:\Project\vPets\bin\roslyn\VBCSCompiler.exe
+J:\Project\vPets\bin\roslyn\VBCSCompiler.exe.config
+J:\Project\vPets\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+J:\Project\vPets\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+J:\Project\vPets\obj\Debug\Library Management New.csproj.AssemblyReference.cache
+J:\Project\vPets\obj\Debug\Library Management New.csproj.CoreCompileInputs.cache
+J:\Project\vPets\obj\Debug\Library Management New.csproj.CopyComplete
+J:\Project\vPets\obj\Debug\Library Management New.dll
+J:\Project\vPets\obj\Debug\Library Management New.pdb
+V:\vPetSh\vPets\bin\Library Management New.dll.config
+V:\vPetSh\vPets\bin\Library Management New.dll
+V:\vPetSh\vPets\bin\Library Management New.pdb
+V:\vPetSh\vPets\bin\roslyn\csc.exe
+V:\vPetSh\vPets\bin\roslyn\csc.exe.config
+V:\vPetSh\vPets\bin\roslyn\csc.rsp
+V:\vPetSh\vPets\bin\roslyn\csi.exe
+V:\vPetSh\vPets\bin\roslyn\csi.exe.config
+V:\vPetSh\vPets\bin\roslyn\csi.rsp
+V:\vPetSh\vPets\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+V:\vPetSh\vPets\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+V:\vPetSh\vPets\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+V:\vPetSh\vPets\bin\roslyn\Microsoft.CodeAnalysis.dll
+V:\vPetSh\vPets\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+V:\vPetSh\vPets\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+V:\vPetSh\vPets\bin\roslyn\Microsoft.CSharp.Core.targets
+V:\vPetSh\vPets\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+V:\vPetSh\vPets\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+V:\vPetSh\vPets\bin\roslyn\Microsoft.Managed.Core.targets
+V:\vPetSh\vPets\bin\roslyn\Microsoft.VisualBasic.Core.targets
+V:\vPetSh\vPets\bin\roslyn\Microsoft.Win32.Primitives.dll
+V:\vPetSh\vPets\bin\roslyn\System.AppContext.dll
+V:\vPetSh\vPets\bin\roslyn\System.Collections.Immutable.dll
+V:\vPetSh\vPets\bin\roslyn\System.Console.dll
+V:\vPetSh\vPets\bin\roslyn\System.Diagnostics.DiagnosticSource.dll
+V:\vPetSh\vPets\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+V:\vPetSh\vPets\bin\roslyn\System.Diagnostics.StackTrace.dll
+V:\vPetSh\vPets\bin\roslyn\System.Globalization.Calendars.dll
+V:\vPetSh\vPets\bin\roslyn\System.IO.Compression.dll
+V:\vPetSh\vPets\bin\roslyn\System.IO.Compression.ZipFile.dll
+V:\vPetSh\vPets\bin\roslyn\System.IO.FileSystem.dll
+V:\vPetSh\vPets\bin\roslyn\System.IO.FileSystem.Primitives.dll
+V:\vPetSh\vPets\bin\roslyn\System.Net.Http.dll
+V:\vPetSh\vPets\bin\roslyn\System.Net.Sockets.dll
+V:\vPetSh\vPets\bin\roslyn\System.Reflection.Metadata.dll
+V:\vPetSh\vPets\bin\roslyn\System.Runtime.InteropServices.RuntimeInformation.dll
+V:\vPetSh\vPets\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+V:\vPetSh\vPets\bin\roslyn\System.Security.Cryptography.Encoding.dll
+V:\vPetSh\vPets\bin\roslyn\System.Security.Cryptography.Primitives.dll
+V:\vPetSh\vPets\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+V:\vPetSh\vPets\bin\roslyn\System.Text.Encoding.CodePages.dll
+V:\vPetSh\vPets\bin\roslyn\System.Threading.Tasks.Extensions.dll
+V:\vPetSh\vPets\bin\roslyn\System.ValueTuple.dll
+V:\vPetSh\vPets\bin\roslyn\System.Xml.ReaderWriter.dll
+V:\vPetSh\vPets\bin\roslyn\System.Xml.XmlDocument.dll
+V:\vPetSh\vPets\bin\roslyn\System.Xml.XPath.dll
+V:\vPetSh\vPets\bin\roslyn\System.Xml.XPath.XDocument.dll
+V:\vPetSh\vPets\bin\roslyn\vbc.exe
+V:\vPetSh\vPets\bin\roslyn\vbc.exe.config
+V:\vPetSh\vPets\bin\roslyn\vbc.rsp
+V:\vPetSh\vPets\bin\roslyn\VBCSCompiler.exe
+V:\vPetSh\vPets\bin\roslyn\VBCSCompiler.exe.config
+V:\vPetSh\vPets\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+V:\vPetSh\vPets\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+V:\vPetSh\vPets\obj\Debug\Library Management New.csproj.AssemblyReference.cache
+V:\vPetSh\vPets\obj\Debug\Library Management New.csproj.CoreCompileInputs.cache
+V:\vPetSh\vPets\obj\Debug\Library Management New.csproj.CopyComplete
+V:\vPetSh\vPets\obj\Debug\Library Management New.dll
+V:\vPetSh\vPets\obj\Debug\Library Management New.pdb
