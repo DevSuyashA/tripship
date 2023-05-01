@@ -36,6 +36,10 @@ namespace TripShip
                     {
                         Button3.Text = "My journey";
                     }
+                    else if (Session["role"].ToString() == "dCenter")
+                    {
+                        Button6.Text = "New Parcel";
+                    }
                     else
                     {
                         Button1.Enabled = true;
@@ -74,11 +78,11 @@ namespace TripShip
         }
         protected void Button4_Click(object sender, EventArgs e)
         {
-            Response.Redirect("AboutUs.aspx");
+            Response.Redirect("distributionCenters.aspx");
         }
         protected void Button5_Click(object sender, EventArgs e)
         {
-            Response.Redirect("AboutUs.aspx");
+            Response.Redirect("notifications.aspx");
         }
 
         protected void Button6_Click(object sender, EventArgs e)
@@ -87,6 +91,10 @@ namespace TripShip
             {
 
                 Response.Redirect("Users.aspx");
+            }
+            else if (Session["role"].ToString().Equals("dCenter"))
+            {
+                Response.Redirect("RegisterParcel.aspx");
             }
             Response.Redirect("createServiceRequest.aspx");
             

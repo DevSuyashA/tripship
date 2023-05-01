@@ -61,16 +61,17 @@ namespace TripShip
                 {
                     rdbUser.Checked = false;
                     rdbBuddy.Checked = false;
-                    SqlCommand cmd = new SqlCommand("select * from distributionCenters where v_username='" + TextBox1.Text.Trim() + "' AND Password='" + TextBox2.Text.Trim() + "'", con);
+                    SqlCommand cmd = new SqlCommand("select * from distributionCenters where username='" + TextBox1.Text.Trim() + "' AND password='" + TextBox2.Text.Trim() + "'", con);
                     SqlDataReader dr = cmd.ExecuteReader();
                     //TextBox2.Text.Trim();
                     if (dr.HasRows)
                     {
                         while (dr.Read())
                         {
-                            Session["role"] = "vet";
+                            Session["role"] = "dCenter";
                             Session["UserID"] = dr["distributerID"];
-                            Session["username"] = dr["Name"];
+                            Session["username"] = dr["ownerName"];
+                            Session["city"] = dr["city"];
                             Response.Write("<script>alert('" + dr.GetValue(2).ToString() + "');</script>");
                             Response.Redirect("homepage.aspx");
                         }

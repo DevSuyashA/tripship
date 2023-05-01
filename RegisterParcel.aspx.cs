@@ -68,49 +68,54 @@ namespace TripShip
             {
                 con.Open();
             }
-
-            string type = "";
-            //if (RadioButton1.Checked)
-            //  type = "Dog";
-            //else if (RadioButton2.Checked)
-            // type = "Cat";
-            if (Button1.Text == "Submit")
-            {
-
-                SqlCommand cmd = new SqlCommand("INSERT INTO Pet(petName,petType,Age,Gender,Breed,) values(@petName,@petType,@Age,@Gender,@Breed,@customerID)", con);
-                cmd.Parameters.AddWithValue("@petName", TextBox1.Text.Trim());
-                cmd.Parameters.AddWithValue("@petType", type);
-                cmd.Parameters.AddWithValue("@Age", TextBox3.Text.Trim());
-                cmd.Parameters.AddWithValue("@Gender", ddlGender.SelectedValue);
-                //  cmd.Parameters.AddWithValue("@Breed", TextBox5.Text.Trim());
-                cmd.Parameters.AddWithValue("@customerID", Session["UserID"].ToString());
-
+            int volume = Convert.ToInt32(TextBox3.Text.ToString()) * Convert.ToInt32(TextBox4.Text.ToString()) * Convert.ToInt32(TextBox6.Text.ToString());
+            SqlCommand cmd;
+            cmd = con.CreateCommand();
+            cmd.CommandText = "insert into parcelTracking(destDistributionCenter,receiverEmail,customerID,weight,sourceDistributionCenter,Volume,parcelName,price,parcelStatus,destCity,sourceCity,maxDate) values(@destDist,@receiverEmail,@customerID,@weight,@sourceDist,@volume,@parcelName,@price,@parcelStatus,@destCity,@sourceCity,@maxDate)";
+            cmd.Parameters.AddWithValue("@destDist", ddlDest.SelectedValue);
+            cmd.Parameters.AddWithValue("@receiverEmail", TextBox8.Text);
+            cmd.Parameters.AddWithValue("@customerID", ddlUser.SelectedValue);
+            cmd.Parameters.AddWithValue("@weight", TextBox7.Text);
+            cmd.Parameters.AddWithValue("@sourceDist", Session["UserID"].ToString());
+            cmd.Parameters.AddWithValue("@volume", volume);
+            cmd.Parameters.AddWithValue("@parcelName", TextBox1.Text);
+            cmd.Parameters.AddWithValue("@price", TextBox5.Text);
+            cmd.Parameters.AddWithValue("@parcelStatus", "Pending");
+            cmd.Parameters.AddWithValue("@destCity", DropDownList1.SelectedValue);
+            cmd.Parameters.AddWithValue("@sourceCity", Session["city"]);
+            cmd.Parameters.AddWithValue("@maxDate", TextBox2.Text);
                 cmd.ExecuteNonQuery();
-                Clear();
-                con.Close();
-                Response.Redirect("ParcelInfo.aspx");
-            }
-            else if (Button1.Text == "Edit")
-            {
-                int id = Convert.ToInt32(Request.QueryString["id"]);
-                //SqlCommand cmd = new SqlCommand("update pet set petName='hhaa',petType='Dog',Age=3,Gender='M',Breed='Randi' where pet_ID=9", con);
-                SqlCommand cmd = new SqlCommand("Update pet set petName='" + TextBox1.Text.Trim() + "',petType='" + type + "',Age='" + TextBox3.Text.Trim() + "',Gender='" + ddlGender.SelectedValue + "',Breed='" + /*TextBox5.Text.Trim() */ "' where pet_ID = '" + id + "'", con);
-
-
-
-                cmd.ExecuteNonQuery();
-                Clear();
-                con.Close();
-                Response.Redirect("ParcelInfo.aspx");
-            }
+            Response.Write("<script>alert('Parcel added to pending lists')</script>");
+            Clear();
         }
 
         private void Clear()
         {
             TextBox1.Text = "";
+            TextBox2.Text = "";
             TextBox3.Text = "";
-
+            TextBox4.Text = "";
+            TextBox5.Text = "";
+            TextBox6.Text = "";
+            TextBox7.Text = "";
+            TextBox8.Text = "";
             //TextBox5.Text = "";
+        }
+
+        protected void ddlUser_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void priceCalc_Click(object sender, EventArgs e)
+        {
+            double volume = Convert.ToInt32(TextBox3.Text.ToString()) * Convert.ToInt32(TextBox4.Text.ToString()) * Convert.ToInt32(TextBox6.Text.ToString());
+            double weight = Convert.ToInt32(TextBox7.Text.ToString());
+            double baseRate = 50;
+            double weightRate = Math.Ceiling(weight * 2) * 50; // round up weight to nearest 500 g
+            double volumeRate = Math.Ceiling((volume - 500) / 100) * 5; // subtract base volume of 500 cc
+            double totalCost = baseRate + weightRate + volumeRate;
+            TextBox5.Text= totalCost.ToString();
         }
     }
 }

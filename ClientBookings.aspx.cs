@@ -33,29 +33,29 @@ namespace TripShip
             if (Session["role"].ToString() == "user")
             {
                 MultiView1.ActiveViewIndex = 0;
-                int clientid = Convert.ToInt32( Session["UserID"]);
-                SqlCommand cmd = new SqlCommand("select b.b_ID,b.startDnT, b.endDnt,s.Name as serviceType,p.petName,pb.Name as pbName,v.Name as vName from ((((Booking b INNER JOIN Pet p on b.pet_ID=p.pet_ID) INNER JOIN travellers pb on b.pb_ID=pb.pb_ID) INNER JOIN distributionCenters v on b.v_ID=v.distributerID)INNER JOIN Service s on b.ServiceID=s.ServiceID) where ((DATEDIFF(day,convert(varchar,b.endDnt,101), convert(varchar,getdate(),101))< 0) and (DATEDIFF(hour,convert(varchar,b.endDnt,108), convert(varchar,getdate(),108))<0)) and b.  = '" + Session["UserID"] + "'", con);
-                SqlDataAdapter sda = new SqlDataAdapter(cmd);
-                DataTable dt = new DataTable();
-                sda.Fill(dt);
+                //int clientid = Convert.ToInt32( Session["UserID"]);
+                //SqlCommand cmd = new SqlCommand("select b.b_ID,b.startDnT, b.endDnt,s.Name as serviceType,p.petName,pb.Name as pbName,v.Name as vName from ((((Booking b INNER JOIN Pet p on b.pet_ID=p.pet_ID) INNER JOIN travellers pb on b.pb_ID=pb.pb_ID) INNER JOIN distributionCenters v on b.v_ID=v.distributerID)INNER JOIN Service s on b.ServiceID=s.ServiceID) where ((DATEDIFF(day,convert(varchar,b.endDnt,101), convert(varchar,getdate(),101))< 0) and (DATEDIFF(hour,convert(varchar,b.endDnt,108), convert(varchar,getdate(),108))<0)) and b.  = '" + Session["UserID"] + "'", con);
+                //SqlDataAdapter sda = new SqlDataAdapter(cmd);
+                //DataTable dt = new DataTable();
+                //sda.Fill(dt);
 
                 
-                rUser.DataSource =dt;
-                //GridView1.DataSource = dt;
+                //rUser.DataSource =dt;
+                ////GridView1.DataSource = dt;
 
 
-                rUser.DataBind();
-                 cmd = new SqlCommand("select b.b_ID,b.startDnT, b.endDnt,s.Name as serviceType,p.petName,pb.Name as pbName,v.Name as vName from ((((Booking b INNER JOIN Pet p on b.pet_ID=p.pet_ID) INNER JOIN travellers pb on b.pb_ID=pb.pb_ID) INNER JOIN distributionCenters v on b.v_ID=v.distributerID)INNER JOIN Service s on b.ServiceID=s.ServiceID) where (DATEDIFF(day,convert(varchar,b.endDnt,101), convert(varchar,getdate(),101))> 0) and b.customerID = '" + Session["UserID"] + "'", con);
-                 sda = new SqlDataAdapter(cmd);
-                 dt = new DataTable();
-                sda.Fill(dt);
+                //rUser.DataBind();
+                // cmd = new SqlCommand("select b.b_ID,b.startDnT, b.endDnt,s.Name as serviceType,p.petName,pb.Name as pbName,v.Name as vName from ((((Booking b INNER JOIN Pet p on b.pet_ID=p.pet_ID) INNER JOIN travellers pb on b.pb_ID=pb.pb_ID) INNER JOIN distributionCenters v on b.v_ID=v.distributerID)INNER JOIN Service s on b.ServiceID=s.ServiceID) where (DATEDIFF(day,convert(varchar,b.endDnt,101), convert(varchar,getdate(),101))> 0) and b.customerID = '" + Session["UserID"] + "'", con);
+                // sda = new SqlDataAdapter(cmd);
+                // dt = new DataTable();
+                //sda.Fill(dt);
 
 
-                rClientCom.DataSource = dt;
-                //GridView1.DataSource = dt;
+                //rClientCom.DataSource = dt;
+                ////GridView1.DataSource = dt;
 
 
-                rClientCom.DataBind();
+                //rClientCom.DataBind();
             }
 
             else if (Session["role"].ToString() == "vet")
@@ -135,7 +135,7 @@ namespace TripShip
 
         protected void rUser_ItemCommand(object source, RepeaterCommandEventArgs e)
         {
-            if (e.CommandName == "cancel")
+            if (e.CommandName == "pay")
             {
                 SqlConnection con = new SqlConnection(strcon);
                 if (con.State == ConnectionState.Closed)
@@ -143,8 +143,8 @@ namespace TripShip
                     con.Open();
 
                 }
-                SqlCommand cmd = new SqlCommand("Delete from Booking where b_ID = '" + e.CommandArgument + "'", con);
-                cmd.ExecuteNonQuery();
+                //SqlCommand cmd = new SqlCommand("Delete from Booking where b_ID = '" + e.CommandArgument + "'", con);
+                //cmd.ExecuteNonQuery();
                 Response.Redirect("ClientBookings.aspx");
             }
         }

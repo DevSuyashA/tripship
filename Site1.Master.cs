@@ -46,7 +46,7 @@ namespace TripShip
                         LinkButton12.Visible = true; // publisher management link button
 
                     }
-                    else if (Session["role"].ToString() == "vet")
+                    else if (Session["role"].ToString() == "dCenter")
                     {
                         LinkButton6.Visible = false;
                         LinkButton1.Visible = false; // user login link button

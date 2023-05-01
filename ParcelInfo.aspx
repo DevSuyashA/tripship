@@ -5,17 +5,96 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <h3>
         <center>
-            Your Parcels
+            Pending Parcels
         </center>
     </h3>
     <div class="row">
         <div class="col">
-            <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT [pet_ID], [petName] FROM [Pet] WHERE ([customerID] = @customerID)">
-                <SelectParameters>
-                    <asp:SessionParameter Name="customerID" SessionField="UserID" Type="Int32" />
-                </SelectParameters>
-            </asp:SqlDataSource>
+
+
             <asp:Repeater ID="rPetInfo" runat="server" OnItemCommand="rPetInfo_ItemCommand">
+                <HeaderTemplate>
+                    <table class="table data-table-export table-hover nowrap">
+                        <thead>
+                            <tr>
+                                <th class="table-plus">Parcel Name</th>
+                                <th>Weight (in Kg)</th>
+                                <th>Amount</th>
+                                <th>Status</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                </HeaderTemplate>
+                <ItemTemplate>
+                    <tr>
+                        <td class="table-plus"><%# Eval("parcelName") %> </td>
+                        <td>
+                            <%# Eval("weight") %></td>
+                        <td>
+                            <%# Eval("price") %></td>
+                        <td><%# Eval("parcelStatus") %></td>
+                        <td><asp:LinkButton runat="server" ID="lnbAccept" CommandName="accept" CommandArgument='<%# Eval("TrackingID") %>'><span><i class="fas fa-edit"></i></span></asp:LinkButton></td>
+                    </tr>
+                </ItemTemplate>
+                <FooterTemplate>
+                    </tbody> 
+</table>
+                </FooterTemplate>
+            </asp:Repeater>
+        </div>
+    </div>
+
+
+
+    <h3>
+        <center>
+            Upcoming Parcels
+        </center>
+    </h3>
+    <div class="row">
+        <div class="col">
+            
+            <asp:Repeater ID="rUpcoming" runat="server">
+                <HeaderTemplate>
+                    <table class="table data-table-export table-hover nowrap">
+                        <thead>
+                            <tr>
+                                <th class="table-plus">Parcel Name</th>
+                                <th>Weight (in Kg)</th>
+                                <th>Amount</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                </HeaderTemplate>
+                <ItemTemplate>
+                    <tr>
+                        <td class="table-plus"><%# Eval("parcelName") %> </td>
+                        <td>
+                            <%# Eval("weight") %></td>
+                        <td>
+                            <%# Eval("price") %></td>
+                        <td><%# Eval("parcelStatus") %></td>
+                    </tr>
+                </ItemTemplate>
+                <FooterTemplate>
+                    </tbody> 
+</table>
+                </FooterTemplate>
+            </asp:Repeater>
+        </div>
+    </div>
+
+    <h3>
+        <center>
+            Completed Parcels
+        </center>
+    </h3>
+    <div class="row">
+        <div class="col">
+            
+            <asp:Repeater ID="rCompleted" runat="server">
                 <HeaderTemplate>
                     <table class="table data-table-export table-hover nowrap">
                         <thead>

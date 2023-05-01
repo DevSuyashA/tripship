@@ -8,20 +8,24 @@
         <asp:View ID="user" runat="server">
             <div class="card-block table-border-style">
                 <div class="table-responsive">
-                    <h2>Pending Bookings</h2>
-                    <asp:Repeater ID="rUser" runat="server" OnItemCommand="rUser_ItemCommand">
+                    <center>
+
+                        <h2>Bookings</h2>
+                    </center>
+                    <asp:Repeater ID="rUser" runat="server" OnItemCommand="rUser_ItemCommand" DataSourceID="SqlDataSource1">
                         <HeaderTemplate>
                             <table class="table data-table-export table-hover nowrap">
                                 <thead>
                                     <tr>
-                                        <th class="table-plus">Booking ID</th>
-                                        <th>Pet Name</th>
-                                        <th>Start Date and Time</th>
-                                        <th>End Date and Time</th>
-                                        <th>Service Type</th>
-                                        <th>Vet Name</th>
-                                        <th>travellers Name</th>
-                                        <th>Cancel</th>
+                                        <th class="table-plus">Tracking ID</th>
+                                        <th>Parcel Name</th>
+                                        <th>Parcel Status</th>
+                                        <th>Destination</th>
+                                        <th>Weight</th>
+                                        <th>OTP</th>
+                                        <th>Payment Status</th>
+                                        <th>Pay</th>
+
 
 
 
@@ -31,15 +35,15 @@
                         </HeaderTemplate>
                         <ItemTemplate>
                             <tr>
-                                <td class="table-plus"><%# Eval("b_ID") %> </td>
-                                <td><%# Eval("petName") %></td>
-                                <td><%# Eval("startDnT") %></td>
-                                <td><%# Eval("endDnT") %></td>
-                                <td><%# Eval("serviceType") %></td>
-                                <td><%# Eval("vName") %></td>
-                                <td><%# Eval("pbName") %></td>
+                                <td class="table-plus"><%# Eval("TrackingID") %> </td>
+                                <td><%# Eval("parcelName") %></td>
+                                <td><%# Eval("parcelStatus") %></td>
+                                <td><%# Eval("destCity") %></td>
+                                <td><%# Eval("weight") %></td>
+                                <td><%# Eval("otp") %></td>
+                                <td><%# Eval("paymentStatus") %></td>
                                 <td>
-                                    <asp:LinkButton ID="lnkCancel" Text="Cancel" runat="server" CommandName="cancel" CommandArgument='<%# Eval("b_ID") %>' OnClientClick="return confirm('Do You want to Cancel?');"></asp:LinkButton>
+                                    <asp:LinkButton ID="lnkPay" Text="Pay" runat="server" CommandName="pay" CommandArgument='<%# Eval("TrackingID") %>' OnClientClick="return confirm('Do You want to Pay?');"></asp:LinkButton>
                                 </td>
                             </tr>
                         </ItemTemplate>
@@ -48,54 +52,19 @@
 </table>
                         </FooterTemplate>
                     </asp:Repeater>
-                    <h2>Previous Bookings</h2>
-                    <asp:Repeater ID="rClientCom" runat="server">
-                        <HeaderTemplate>
-                            <table class="table data-table-export table-hover nowrap">
-                                <thead>
-                                    <tr>
-                                        <th class="table-plus">Booking ID</th>
-                                        <th>Pet Name</th>
-                                        <th>Start Date and Time</th>
-                                        <th>End Date and Time</th>
-                                        <th>Service Type</th>
-                                        <th>Vet Name</th>
-                                        <th>travellers Name</th>
+                    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT [TrackingID], [parcelName], [parcelStatus], [destCity], [weight], [otp], [paymentStatus] FROM [parcelTracking] WHERE ([customerID] = @customerID)">
+                        <SelectParameters>
+                            <asp:SessionParameter Name="customerID" SessionField="userID" />
+                        </SelectParameters>
+                    </asp:SqlDataSource>
 
-
-                                        <%--<th class="datatable-nosort">Action</th>--%>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                        </HeaderTemplate>
-                        <ItemTemplate>
-                            <tr>
-                                <td class="table-plus"><%# Eval("b_ID") %> </td>
-                                <td><%# Eval("petName") %></td>
-                                <td><%# Eval("startDnT") %></td>
-                                <td><%# Eval("endDnT") %></td>
-                                <td><%# Eval("serviceType") %></td>
-                                <td><%# Eval("vName") %></td>
-                                <td><%# Eval("pbName") %></td>
-                                <%--<td>
-<asp:LinkButton ID="lnkPay" Text="Pay" runat="server" CommandName="pay"
-CommandArgument='<%# Eval("b_ID") %>' OnClientClick="return confirm('Do You want to Pay?');">
-</asp:LinkButton>
-</td>--%>
-                            </tr>
-                        </ItemTemplate>
-                        <FooterTemplate>
-                            </tbody> 
-</table>
-                        </FooterTemplate>
-                    </asp:Repeater>
                 </div>
             </div>
         </asp:View>
         <asp:View ID="Vet" runat="server">
             <div class="card-block table-border-style">
                 <div class="table-responsive">
-                    <asp:Repeater ID="rVet" runat="server"  >
+                    <asp:Repeater ID="rVet" runat="server">
                         <HeaderTemplate>
                             <table class="table data-table-export table-hover nowrap">
                                 <thead>
@@ -142,7 +111,7 @@ CommandArgument='<%# Eval("b_ID") %>' OnClientClick="return confirm('Do You want
                         </FooterTemplate>
                     </asp:Repeater>
                     <h2>Completed Bookings</h2>
-                    <asp:Repeater ID="rVetCompletedBookings" runat="server"  >
+                    <asp:Repeater ID="rVetCompletedBookings" runat="server">
                         <HeaderTemplate>
                             <table class="table data-table-export table-hover nowrap">
                                 <thead>
@@ -195,7 +164,7 @@ CommandArgument='<%# Eval("b_ID") %>' OnClientClick="return confirm('Do You want
             <h2>Available for Bookings</h2>
             <div class="card-block table-border-style">
                 <div class="table-responsive">
-                    <asp:Repeater ID="rTravellerAvailable" runat="server"  OnItemCommand="rTravellerAvailable_ItemCommand"  >
+                    <asp:Repeater ID="rTravellerAvailable" runat="server" OnItemCommand="rTravellerAvailable_ItemCommand">
                         <HeaderTemplate>
                             <table class="table data-table-export table-hover nowrap">
                                 <thead>
@@ -232,7 +201,7 @@ CommandArgument='<%# Eval("b_ID") %>' OnClientClick="return confirm('Do You want
                 </div>
                 <div class="table-responsive">
                     <h3>Pending Bookings</h3>
-                    <asp:Repeater ID="rTravellerAccepted" runat="server"  OnItemCommand="rTravellerAccepted_ItemCommand" >
+                    <asp:Repeater ID="rTravellerAccepted" runat="server" OnItemCommand="rTravellerAccepted_ItemCommand">
                         <HeaderTemplate>
                             <table class="table data-table-export table-hover nowrap">
                                 <thead>

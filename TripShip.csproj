@@ -78,6 +78,7 @@
     <Content Include="distributionCenters.aspx" />
     <Content Include="journeyDetail.aspx" />
     <Content Include="myProfile.aspx" />
+    <Content Include="notifications.aspx" />
     <Content Include="Paym.aspx" />
     <Content Include="Payments.aspx" />
     <Content Include="pbPayment.aspx" />
@@ -2242,6 +2243,13 @@
     </Compile>
     <Compile Include="myProfile.aspx.designer.cs">
       <DependentUpon>myProfile.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="notifications.aspx.cs">
+      <DependentUpon>notifications.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="notifications.aspx.designer.cs">
+      <DependentUpon>notifications.aspx</DependentUpon>
     </Compile>
     <Compile Include="Paym.aspx.cs">
       <DependentUpon>Paym.aspx</DependentUpon>

@@ -43,11 +43,8 @@
                         </div>
                         <div class="row">
                             <div class="col-md-6">
-                                <label>Gender</label>
-                                <asp:DropDownList ID="ddlGender" CssClass="form-control" runat="server">
-                                    <asp:ListItem Text="Male" Value="M" />
-                                    <asp:ListItem Text="Female" Value="F" />
-                                </asp:DropDownList>
+                                <label>City</label>
+                                <asp:TextBox CssClass="form-control" ID="txtCity" runat="server" placeholder="Enter City"></asp:TextBox>
                             </div>
                             <div class="col-md-6">
                                 <label>Contact Number</label>
@@ -123,22 +120,19 @@
 
                                 <div class="card-body">
                                     <asp:GridView class="table table-striped table-bordered" ID="GridView1" runat="server"
-                                        AutoGenerateColumns="False" DataKeyNames="distributerID" DataSourceID="SqlDataSource1">
+                                        AutoGenerateColumns="False" DataSourceID="SqlDataSource1">
                                         <Columns>
-                                            <asp:BoundField DataField="distributerID" HeaderText="distributerID" SortExpression="distributerID" />
-                                            <asp:BoundField DataField="v_username" HeaderText="username" SortExpression="v_username" />
-                                            <asp:BoundField DataField="Password" HeaderText="Password" SortExpression="Password" />
-                                            <asp:BoundField DataField="Name" HeaderText="Name" SortExpression="Name" />
-                                            <asp:BoundField DataField="Address" HeaderText="Address" SortExpression="Address" />
-                                            <asp:BoundField DataField="Email" HeaderText="Email" SortExpression="Email" />
-                                            <asp:BoundField DataField="Mobno" HeaderText="Mobno" SortExpression="Mobno" />
-                                            <asp:BoundField DataField="Open_time" HeaderText="Open_time" SortExpression="Open_time" />
-                                            <asp:BoundField DataField="Close_time" HeaderText="Close_time" SortExpression="Close_time" />
+                                            <asp:BoundField DataField="distributerID" HeaderText="Dist ID" SortExpression="distributerID" />
+                                            <asp:BoundField DataField="ownerName" HeaderText="ownerName" SortExpression="ownerName" />
+                                            <asp:BoundField DataField="Contact" HeaderText="Contact" SortExpression="Contact" />
+                                            <asp:BoundField DataField="totalPackage" HeaderText="totalPackage" SortExpression="totalPackage" />
+                                            <asp:BoundField DataField="address" HeaderText="address" SortExpression="address" />
+                                            <asp:BoundField DataField="city" HeaderText="city" SortExpression="city" />
                                         </Columns>
                                     </asp:GridView>
                                     <asp:SqlDataSource ID="SqlDataSource1" runat="server"
                                         ConnectionString="<%$ ConnectionStrings:ConnectionString %>"
-                                        SelectCommand="SELECT * FROM [distributionCenters] WHERE [distributerID]!=0"></asp:SqlDataSource>
+                                        SelectCommand="SELECT [distributerID],[ownerName], [Contact], [totalPackage], [address], [city] FROM [distributionCenters]"></asp:SqlDataSource>
                                 </div>
                             </div>
                         </div>
@@ -157,6 +151,7 @@
                 </div>
             </div>
         </div>
+    </div>
     <br>
-        <a href="homepage.aspx"><< Back to Home</a><br>
+    <a href="homepage.aspx"><< Back to Home</a><br>
 </asp:Content>

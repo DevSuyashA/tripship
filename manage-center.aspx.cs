@@ -18,7 +18,7 @@ namespace TripShip
         {
 
         }
-
+         
         protected void Button4_Click(object sender, EventArgs e)
         {
             SqlConnection con = new SqlConnection(strcon);
@@ -42,7 +42,7 @@ namespace TripShip
 
             }
             cmd = con.CreateCommand();
-            cmd.CommandText = "select * from distributionCenters where v_username =  '" + TextBox5.Text.Trim() + "'";
+            cmd.CommandText = "select * from distributionCenters where username =  '" + TextBox5.Text.Trim() + "'";
             SqlDataReader dr = cmd.ExecuteReader();
             if (dr.Read())
             {
@@ -52,7 +52,7 @@ namespace TripShip
             else
             {
                 dr.Close();
-                cmd.CommandText = "insert into distributionCenters(v_username,Password,Name,Address,Email,Mobno,Open_time,Close_time) Values('" + TextBox5.Text.Trim() + "','" + TextBox6.Text.Trim() + "','" + txtName.Text.Trim() + "','" + txtAddress.Text.Trim() + "','" + txtEmail.Text.Trim() + "','" + txtNum.Text.Trim() + "','" + TextBox1.Text.ToString() + "','" + TextBox2.Text.ToString() + "')";
+                cmd.CommandText = "insert into distributionCenters(username,password,ownerName,address,contact,city,openingTime,closingTime) Values('" + TextBox5.Text.Trim() + "','" + TextBox6.Text.Trim() + "','" + txtName.Text.Trim() + "','" + txtAddress.Text.Trim() + "','" + txtNum.Text.Trim() + "','" + txtCity.Text.Trim() + "','" + TextBox1.Text.ToString() + "','" + TextBox2.Text.ToString() + "')";
                 cmd.ExecuteNonQuery();
                 GridView1.DataBind();
                 clear();

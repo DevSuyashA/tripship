@@ -24,8 +24,44 @@ namespace TripShip
             else
             {
                 getPetInfo();
+                getUpcoming();
+                getCompleted();
             }
 
+        }
+
+        private void getCompleted()
+        {
+            SqlConnection con = new SqlConnection(strcon);
+            if (con.State == ConnectionState.Closed)
+            {
+                con.Open();
+
+            }
+            cmd = con.CreateCommand();
+            cmd.CommandText = "select * from parcelTracking where sourceDistributionCenter = '" + Session["UserID"] + "' and parcelStatus='completed'";
+            SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+            DataTable dt = new DataTable();
+            adapter.Fill(dt);
+            rCompleted.DataSource = dt;
+            rCompleted.DataBind();
+        }
+
+        private void getUpcoming()
+        {
+            SqlConnection con = new SqlConnection(strcon);
+            if (con.State == ConnectionState.Closed)
+            {
+                con.Open();
+
+            }
+            cmd = con.CreateCommand();
+            cmd.CommandText = "select * from parcelTracking where destDistributionCenter = '" + Session["UserID"] + "' and parcelStatus='In Transit'";
+            SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+            DataTable dt = new DataTable();
+            adapter.Fill(dt);
+            rUpcoming.DataSource = dt;
+            rUpcoming.DataBind();
         }
 
         private void getPetInfo()
@@ -37,7 +73,7 @@ namespace TripShip
 
             }
             cmd = con.CreateCommand();
-            cmd.CommandText = "select * from parcelTracking where customerID = '" + Session["UserID"] + "'";
+            cmd.CommandText = "select * from parcelTracking where sourceDistributionCenter = '" + Session["UserID"] + "' and parcelStatus='pending' or parcelStatus='accepted'";
             SqlDataAdapter adapter = new SqlDataAdapter(cmd);
             DataTable dt = new DataTable();
             adapter.Fill(dt);
@@ -52,7 +88,18 @@ namespace TripShip
 
         protected void rPetInfo_ItemCommand(object source, RepeaterCommandEventArgs e)
         {
-            
+            if (e.CommandName == "accept")
+            {
+                SqlConnection con = new SqlConnection(strcon);
+                if (con.State == ConnectionState.Closed)
+                {
+                    con.Open();
+
+                }
+                cmd = con.CreateCommand();
+                cmd.CommandText = "update parcelTracking set parcelStatus='In Transit' where trackingID='"+e.CommandArgument+"'";
+                cmd.ExecuteNonQuery();
+            }
         }
     }
 }
