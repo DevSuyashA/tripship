@@ -84,7 +84,7 @@ namespace TripShip
                 sda.Fill(dt);
                 rTravellerAvailable.DataSource = dt;
                 rTravellerAvailable.DataBind();
-                cmd = new SqlCommand("SELECT p.* FROM parcelTracking p INNER JOIN journeyLog j on p.journeyID = j.journeyID where j.TravellersID=" + Session["UsreID"]+" and not p.parcelStatus = 'waiting' and not p.parcelStatus = 'delivered'", con);
+                cmd = new SqlCommand("SELECT p.* FROM parcelTracking p INNER JOIN journeyLog j on p.journeyID = j.journeyID where j.TravellersID=" + Session["UserID"]+" and p.parcelStatus <> 'waiting' and p.parcelStatus <> 'delivered'", con);
                 sda = new SqlDataAdapter(cmd);
                 dt = new DataTable();
                 sda.Fill(dt);

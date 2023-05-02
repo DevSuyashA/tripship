@@ -17,9 +17,16 @@ namespace TripShip
         {
             if (Session["role"].ToString() != "traveller")
             {
+                mtv1.ActiveViewIndex= 1;
                 Button1.Visible= false;
                 getTravellerDetails();
+
             }
+            else
+            {
+                mtv1.ActiveViewIndex= 0;
+            }
+            
         }
 
         private void getTravellerDetails()

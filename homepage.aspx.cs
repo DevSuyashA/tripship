@@ -62,9 +62,19 @@ namespace TripShip
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-            Response.Write("<script>alert('Redirecting you to login . . .');</script>");
+            if (Session["role"].ToString().Equals("traveller"))
+            {
+                Response.Redirect("TParcelInfo.aspx");
+            }
+            else if (Session["role"].ToString().Equals("dCenter"))
+            {
+                Response.Redirect("ParcelInfo.aspx");
+            }
+            else if (Session["role"].ToString().Equals("user"))
+            {
+                Response.Redirect("UParcelInfo.aspx");
+            }
 
-            Response.Redirect("ParcelInfo.aspx");
         }
         protected void Button2_Click(object sender, EventArgs e)
         {

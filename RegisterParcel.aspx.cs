@@ -69,9 +69,11 @@ namespace TripShip
                 con.Open();
             }
             int volume = Convert.ToInt32(TextBox3.Text.ToString()) * Convert.ToInt32(TextBox4.Text.ToString()) * Convert.ToInt32(TextBox6.Text.ToString());
+            Random rnd = new Random();
+            int otp = rnd.Next(100000, 999999);
             SqlCommand cmd;
             cmd = con.CreateCommand();
-            cmd.CommandText = "insert into parcelTracking(destDistributionCenter,receiverEmail,customerID,weight,sourceDistributionCenter,Volume,parcelName,price,parcelStatus,destCity,sourceCity,maxDate) values(@destDist,@receiverEmail,@customerID,@weight,@sourceDist,@volume,@parcelName,@price,@parcelStatus,@destCity,@sourceCity,@maxDate)";
+            cmd.CommandText = "insert into parcelTracking(destDistributionCenter,receiverEmail,customerID,weight,sourceDistributionCenter,Volume,parcelName,price,parcelStatus,destCity,sourceCity,maxDate,otp) values(@destDist,@receiverEmail,@customerID,@weight,@sourceDist,@volume,@parcelName,@price,@parcelStatus,@destCity,@sourceCity,@maxDate,@otp)";
             cmd.Parameters.AddWithValue("@destDist", ddlDest.SelectedValue);
             cmd.Parameters.AddWithValue("@receiverEmail", TextBox8.Text);
             cmd.Parameters.AddWithValue("@customerID", ddlUser.SelectedValue);
@@ -84,6 +86,7 @@ namespace TripShip
             cmd.Parameters.AddWithValue("@destCity", DropDownList1.SelectedValue);
             cmd.Parameters.AddWithValue("@sourceCity", Session["city"]);
             cmd.Parameters.AddWithValue("@maxDate", TextBox2.Text);
+            cmd.Parameters.AddWithValue("@otp", otp);
                 cmd.ExecuteNonQuery();
             Response.Write("<script>alert('Parcel added to pending lists')</script>");
             Clear();

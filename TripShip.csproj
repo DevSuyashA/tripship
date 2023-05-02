@@ -82,6 +82,7 @@
     <Content Include="Paym.aspx" />
     <Content Include="Payments.aspx" />
     <Content Include="pbPayment.aspx" />
+    <Content Include="TParcelInfo.aspx" />
     <Content Include="traveller-approvals.aspx" />
     <Content Include="traveller-signup.aspx" />
     <Content Include="travellerProfile.aspx" />
@@ -90,6 +91,7 @@
     <Content Include="traveller-manage.aspx">
       <BrowseToURL>~/AdminBookIssuing.aspx</BrowseToURL>
     </Content>
+    <Content Include="UParcelInfo.aspx" />
     <Content Include="userEdit.aspx" />
     <Content Include="traveller.aspx" />
     <Content Include="books\b1.jpg" />
@@ -2272,6 +2274,13 @@
     <Compile Include="pbPayment.aspx.designer.cs">
       <DependentUpon>pbPayment.aspx</DependentUpon>
     </Compile>
+    <Compile Include="TParcelInfo.aspx.cs">
+      <DependentUpon>TParcelInfo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TParcelInfo.aspx.designer.cs">
+      <DependentUpon>TParcelInfo.aspx</DependentUpon>
+    </Compile>
     <Compile Include="traveller-approvals.aspx.cs">
       <DependentUpon>traveller-approvals.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -2313,6 +2322,13 @@
     </Compile>
     <Compile Include="traveller-manage.aspx.designer.cs">
       <DependentUpon>traveller-manage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UParcelInfo.aspx.cs">
+      <DependentUpon>UParcelInfo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UParcelInfo.aspx.designer.cs">
+      <DependentUpon>UParcelInfo.aspx</DependentUpon>
     </Compile>
     <Compile Include="userEdit.aspx.cs">
       <DependentUpon>userEdit.aspx</DependentUpon>

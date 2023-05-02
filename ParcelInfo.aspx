@@ -21,7 +21,6 @@
                                 <th>Weight (in Kg)</th>
                                 <th>Amount</th>
                                 <th>Status</th>
-                                <th>Action</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -34,7 +33,6 @@
                         <td>
                             <%# Eval("price") %></td>
                         <td><%# Eval("parcelStatus") %></td>
-                        <td><asp:LinkButton runat="server" ID="lnbAccept" CommandName="accept" CommandArgument='<%# Eval("TrackingID") %>'><span><i class="fas fa-edit"></i></span></asp:LinkButton></td>
                     </tr>
                 </ItemTemplate>
                 <FooterTemplate>
@@ -54,8 +52,8 @@
     </h3>
     <div class="row">
         <div class="col">
-            
-            <asp:Repeater ID="rUpcoming" runat="server">
+            <asp:TextBox runat="server" ID="txtOtp" type="number" autocomplete="off" placeholder="Enter OTP" MaxLength="6" EnableViewState="true" ></asp:TextBox>
+            <asp:Repeater ID="rUpcoming" runat="server" OnItemCommand="rUpcoming_ItemCommand" OnItemDataBound="rUpcoming_ItemDataBound" EnableViewState="true">
                 <HeaderTemplate>
                     <table class="table data-table-export table-hover nowrap">
                         <thead>
@@ -64,6 +62,8 @@
                                 <th>Weight (in Kg)</th>
                                 <th>Amount</th>
                                 <th>Status</th>
+                                <th>Payment Status</th>
+                                <th>Action</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -75,7 +75,10 @@
                             <%# Eval("weight") %></td>
                         <td>
                             <%# Eval("price") %></td>
-                        <td><%# Eval("parcelStatus") %></td>
+                        <td><asp:Label runat="server" ID="lblParcelStatus" Text='<%# Eval("parcelStatus") %>'></asp:Label></td>
+                        <td><asp:Label runat="server" ID="lblPaymentStatus" Text='<%# Eval("paymentStatus") %>'></asp:Label></td>
+                        <td><asp:LinkButton runat="server" ID="collectParcel" CommandName="collectParcel" CommandArgument='<%# Eval("TrackingID") %>'>Collect</asp:LinkButton>                            
+                            <asp:LinkButton runat="server" ID="enterOTP" CommandName="enterOTP" CommandArgument='<%# Eval("TrackingID") %>'>Verify OTP</asp:LinkButton></td>
                     </tr>
                 </ItemTemplate>
                 <FooterTemplate>

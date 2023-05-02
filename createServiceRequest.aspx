@@ -13,10 +13,10 @@
                 <div class="col-md-4">
                     <label>Select Parcel</label>
                     <div class="form-group">
-                        <asp:DropDownList  runat="server" ID="ddlTrackingId" DataSourceID="SqlDataSource2"></asp:DropDownList>
+                        <asp:DropDownList  runat="server" ID="ddlTrackingId" DataSourceID="SqlDataSource2" DataTextField="parcelName" DataValueField="TrackingID"></asp:DropDownList>
                         <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT [TrackingID], [parcelName] FROM [parcelTracking] WHERE ([customerID] = @customerID)">
                             <SelectParameters>
-                                <asp:SessionParameter DefaultValue="0" Name="customerID" SessionField="UserID" Type="Int32" />
+                                <asp:SessionParameter Name="customerID" SessionField="UserID" Type="Int32" />
                             </SelectParameters>
                         </asp:SqlDataSource>
                     </div>

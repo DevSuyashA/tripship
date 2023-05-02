@@ -7,6 +7,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Configuration;
+using TripShip;
 
 namespace Library_Management_New
 {
@@ -83,8 +84,8 @@ namespace Library_Management_New
                     con.Open();
                 }
                 SqlCommand cmd = new SqlCommand("INSERT INTO journeyLog(sourceCity,destinationCity,startDateTime,endDateTime,acceptableWeight,TravellersID) VALUES('"+DropDownList1.SelectedValue+"','"+DropDownList2.SelectedValue+"','"+TextBox2.Text+"','"+TextBox3.Text+"',"+txtWeight.Text+"," + Session["UserID"] +")", con);
-                cmd.ExecuteNonQuery();  
-                
+                cmd.ExecuteNonQuery();
+                Response.Redirect("travellers.aspx");
             }
             catch (Exception ex)
             {

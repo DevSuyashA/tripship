@@ -26,7 +26,7 @@
                             <div class="col-md-6">
                                 <label>Select Source Center</label>
                                 <div class="form-group">
-                                    <asp:DropDownList ID="DropDownList1" runat="server" DataSourceID="SqlDataSource2" CssClass="form-control" DataTextField="petName" DataValueField="pet_ID"></asp:DropDownList>
+                                    <asp:DropDownList ID="DropDownList1" runat="server" DataSourceID="SqlDataSource2" CssClass="form-control" DataTextField="city" DataValueField="city"></asp:DropDownList>
                                     <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT DISTINCT [city] FROM [distributionCenters]"></asp:SqlDataSource>
                                 </div>
                             </div>

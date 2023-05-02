@@ -29,9 +29,9 @@
                                                 <asp:TextBox ID="txtName" CssClass="form-control" runat="server" placeholder="Card Holder's Name"></asp:TextBox>
                                                 <asp:Label ID="lblNumber" ToolTip="Name" runat="server" Text="Card Number"></asp:Label>
 
-                                                <asp:RegularExpressionValidator ID="revCard" runat="server" ErrorMessage="Card number should be 12 digits"
+                                                <asp:RegularExpressionValidator ID="revCard" runat="server" ErrorMessage="Card number should be 16 digits"
                                                     ForeColor="Red" Display="Dynamic" SetFocusOnError="true"
-                                                    ValidationExpression="^^[0-9]{12}$" ControlToValidate="txtCardNumber"></asp:RegularExpressionValidator>
+                                                    ValidationExpression="^^[0-9]{16}$" ControlToValidate="txtCardNumber"></asp:RegularExpressionValidator>
                                                 <asp:TextBox ID="txtCardNumber" CssClass="form-control" runat="server" placeholder="Enter Your Card Number" TextMode="Number"></asp:TextBox>
                                             </div>
 

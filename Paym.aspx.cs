@@ -27,8 +27,8 @@ namespace TripShip
                 }
                 else
                 {
-                    txtAmount.Text = Session["grantTotalPrice"].ToString();
-                    
+                    txtAmount.Text = Session["amount"].ToString();
+
                 }
             }
         }
@@ -77,39 +77,25 @@ namespace TripShip
                 con.Open();
 
             }
+            int travellersID = 0;
             cmd = con.CreateCommand();
             cmd.CommandType = CommandType.Text;
-            string expdate = txtMonths.Text.ToString() + "/" + txtYear.Text.ToString();
-            int payid = 0;
-            
-            int toVet = 0;
-            cmd.CommandText = "select * from Booking where b_ID = '" + Request.QueryString["id"] + "'";
-            SqlDataReader dr = cmd.ExecuteReader();
-            if (dr.Read())
-            {
-                if (Convert.ToInt32( dr["v_ID"]) == 0)
-                    toVet = 0;
-                else
-                    toVet = 1;
-            }
-            dr.Close();
-            cmd.CommandText = "insert into Payment(Name,CardNo,Expiry,Cvv,TrTime,Amount,toVet) " +
-                "values('" +txtName.Text.Trim() + "','" + txtCardNumber.Text.Trim() + "','" + expdate + "','" + Convert.ToInt32(txtCVV.Text.Trim()) + "',GETDATE(),'" + txtAmount.Text.Trim() + "','"+toVet+"')";
+            cmd.CommandText = "select TravellersID from parcelTracking where TrackingID = '" + Session["TrackingID"] + "'";
             try
             {
-                cmd.ExecuteNonQuery();
-                cmd.CommandText = "select Top(1) * from Payment Order by TrTime DESC";
-                dr= cmd.ExecuteReader();
-                
+                SqlDataReader dr = cmd.ExecuteReader();
                 if (dr.Read())
                 {
-                    payid = Convert.ToInt32( dr["payID"]);
+                    travellersID = dr.GetInt32(0);
                 }
                 dr.Close();
-                cmd.CommandText = "update Booking set payID = '" + payid + "' where b_ID = '" + Request.QueryString["id"] + "'";
+
+                cmd.CommandText = "insert into Transaction(customerID, travellersID, trackingID, paymentStatus, amount) values('" + Session["UserID"] +"','" + travellersID +"','" + Session["TrackingID"] +"','Paid','" + Session["amount"] +"')";
+                cmd.ExecuteNonQuery();
+                cmd.CommandText= "Update parcelTracking set paymentStatus = 'Paid' where TrackingID = '" + Session["TrackingID"] + "'";
                 cmd.ExecuteNonQuery();
                 Response.Write("Payment Successfull!");
-                Response.Redirect("Payments.aspx");
+                Response.Redirect("UParcelInfo.aspx");
             }
             catch (Exception ex)
             {
