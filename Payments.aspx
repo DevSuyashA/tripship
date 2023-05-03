@@ -17,7 +17,6 @@
                                 <th>Traveller's Name</th>
                                 <th>Distribution Center's Name</th>
                                 <th>Amount</th>
-                                <th class="datatable-nosort">Action</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -34,11 +33,7 @@
                         <td><%# Eval("pbName") %></td>
                         <td><%# Eval("vName") %></td>
                         <td><%# Eval("Amount") %></td>
-                        <td>
-                            <asp:LinkButton ID="lnkPay" Text="Pay" runat="server" CommandName="pay"
-                                CommandArgument='<%# Eval("b_ID") %>' OnClientClick="return confirm('Do You want to Pay?');">
-                            </asp:LinkButton>
-                        </td>
+                        
 
                     </tr>
                 </ItemTemplate>

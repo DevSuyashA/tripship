@@ -17,7 +17,6 @@ namespace TripShip
         {
             if (!Page.IsPostBack)
             {
-                //your code here...
                 if (Session["UserID"] == null)
                 {
                     Response.Write("You are not logged in. Redirecting to login. . .");

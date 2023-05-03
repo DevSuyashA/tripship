@@ -22,7 +22,8 @@ namespace TripShip
                     if (Session["role"].ToString() == "admin")
                     {
 
-                        Button1.Enabled = false;
+                        Button1.Enabled = true;
+                        Button1.Text = "Resolve Queries";
                         Button2.Enabled = false;
                         Button6.Text = "User Details";
                         //Buttom3Enabled = false;
@@ -62,17 +63,29 @@ namespace TripShip
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-            if (Session["role"].ToString().Equals("traveller"))
+            if (Session["role"] != null)
             {
-                Response.Redirect("TParcelInfo.aspx");
+
+                if (Session["role"].ToString().Equals("traveller"))
+                {
+                    Response.Redirect("TParcelInfo.aspx");
+                }
+                else if (Session["role"].ToString().Equals("dCenter"))
+                {
+                    Response.Redirect("ParcelInfo.aspx");
+                }
+                else if (Session["role"].ToString().Equals("user"))
+                {
+                    Response.Redirect("UParcelInfo.aspx");
+                }
+                else
+                {
+                    Response.Redirect("resolveQueries.aspx");
+                }
             }
-            else if (Session["role"].ToString().Equals("dCenter"))
+            else
             {
-                Response.Redirect("ParcelInfo.aspx");
-            }
-            else if (Session["role"].ToString().Equals("user"))
-            {
-                Response.Redirect("UParcelInfo.aspx");
+                Response.Write("<script>alert('You need to be logged in to perform this operation')</script>");
             }
 
         }
@@ -97,17 +110,24 @@ namespace TripShip
 
         protected void Button6_Click(object sender, EventArgs e)
         {
-            if (Session["role"].ToString().Equals("admin"))
+            if (Session["role"] != null)
             {
+                if (Session["role"].ToString().Equals("admin"))
+                {
 
-                Response.Redirect("Users.aspx");
+                    Response.Redirect("Users.aspx");
+                }
+                else if (Session["role"].ToString().Equals("dCenter"))
+                {
+                    Response.Redirect("RegisterParcel.aspx");
+                }
+                Response.Redirect("createServiceRequest.aspx");
             }
-            else if (Session["role"].ToString().Equals("dCenter"))
+            else
             {
-                Response.Redirect("RegisterParcel.aspx");
+                Response.Write("<script>alert('You need to be logged in to perform this operation')</script>");
             }
-            Response.Redirect("createServiceRequest.aspx");
-            
+
         }
     }
 }

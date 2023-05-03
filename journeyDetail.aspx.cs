@@ -85,7 +85,7 @@ namespace Library_Management_New
                 }
                 SqlCommand cmd = new SqlCommand("INSERT INTO journeyLog(sourceCity,destinationCity,startDateTime,endDateTime,acceptableWeight,TravellersID) VALUES('"+DropDownList1.SelectedValue+"','"+DropDownList2.SelectedValue+"','"+TextBox2.Text+"','"+TextBox3.Text+"',"+txtWeight.Text+"," + Session["UserID"] +")", con);
                 cmd.ExecuteNonQuery();
-                Response.Redirect("travellers.aspx");
+                Response.Redirect("traveller.aspx");
             }
             catch (Exception ex)
             {
