@@ -41,7 +41,7 @@ namespace TripShip
 
             }
             cmd = con.CreateCommand();
-            cmd.CommandText = "select b.b_ID,b.endDnT,(DATEDIFF(hour,convert(varchar, b.startDnt,108), convert(varchar,b.endDnT,108))+1) duration, (s.Price*(DATEDIFF(hour,convert(varchar, b.startDnt,108), convert(varchar,b.endDnT,108))+1)) Amount,b.startDnt,p.petName,v.Name as vName,pb.Name as pbName from ((((Booking b INNER JOIN Pet p on b.pet_ID=p.pet_ID) INNER JOIN distributionCenters v on b.v_ID=v.distributerID) INNER JOIN travellers pb on b.pb_ID=pb.pb_ID)INNER JOIN Service s on b.ServiceID=s.ServiceID) where b. = '" + Session["UserID"] + "' and b.payID = 0";
+            cmd.CommandText = "";
             SqlDataAdapter adapter = new SqlDataAdapter(cmd);
             DataTable dt = new DataTable();
             adapter.Fill(dt);
@@ -56,27 +56,7 @@ namespace TripShip
             }
         }
 
-        protected void rPayment_ItemCommand(object source, RepeaterCommandEventArgs e)
-        {
-            if (e.CommandName == "pay")
-            {
-                SqlConnection con = new SqlConnection(strcon);
-                if (con.State == ConnectionState.Closed)
-                {
-                    con.Open();
-
-                }
-                cmd = con.CreateCommand();
-                cmd.CommandText = "select (s.Price*(DATEDIFF(hour,convert(varchar, b.startDnt,108), convert(varchar,b.endDnT,108))+1)) as Amount from Booking b INNER JOIN Service s on b.ServiceID=s.ServiceID where b.b_id = '" + e.CommandArgument + "'";
-                SqlDataReader dr = cmd.ExecuteReader();
-                if(dr.Read())
-                {
-                    Session["grantTotalPrice"] = dr["Amount"];
-                }
-                dr.Close();
-                Response.Redirect("Paym.aspx?id=" + e.CommandArgument);
-            }
-        }
+       
 
         
     }

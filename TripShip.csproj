@@ -69,9 +69,9 @@
   <ItemGroup>
     <Content Include="AboutUs.aspx" />
     <Content Include="addjourney.aspx" />
-    <Content Include="App_Data\Tripship.mdf" />
-    <Content Include="App_Data\Tripship_log.ldf">
-      <DependentUpon>Tripship.mdf</DependentUpon>
+    <Content Include="App_Data\TripShip.mdf" />
+    <Content Include="App_Data\TripShip_log.ldf">
+      <DependentUpon>TripShip.mdf</DependentUpon>
     </Content>
     <Content Include="ClientBookings.aspx" />
     <Content Include="createServiceRequest.aspx" />
@@ -82,6 +82,7 @@
     <Content Include="Paym.aspx" />
     <Content Include="Payments.aspx" />
     <Content Include="pbPayment.aspx" />
+    <Content Include="resolveQueries.aspx" />
     <Content Include="TParcelInfo.aspx" />
     <Content Include="traveller-approvals.aspx" />
     <Content Include="traveller-signup.aspx" />
@@ -2273,6 +2274,13 @@
     </Compile>
     <Compile Include="pbPayment.aspx.designer.cs">
       <DependentUpon>pbPayment.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="resolveQueries.aspx.cs">
+      <DependentUpon>resolveQueries.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="resolveQueries.aspx.designer.cs">
+      <DependentUpon>resolveQueries.aspx</DependentUpon>
     </Compile>
     <Compile Include="TParcelInfo.aspx.cs">
       <DependentUpon>TParcelInfo.aspx</DependentUpon>

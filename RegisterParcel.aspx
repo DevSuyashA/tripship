@@ -33,13 +33,13 @@
                             <div class="flex-row">
                                 <div class="col-md-6">
                                     <asp:Label CssClass="small mb-1" ID="Label1" runat="server" Text="Destination City"></asp:Label>
-                                    <asp:DropDownList CssClass="btn btn-secondary dropdown-toggle" ID="DropDownList1" runat="server" DataSourceID="SqlDataSource2" DataTextField="city" DataValueField="city">
+                                    <asp:DropDownList CssClass="btn btn-secondary dropdown-toggle" ID="DropDownList1" AutoPostBack="true" runat="server" DataSourceID="SqlDataSource2" DataTextField="city" DataValueField="city">
                                     </asp:DropDownList>
                                     <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT [distributerID], [city], [address] FROM [distributionCenters]"></asp:SqlDataSource>
                                 </div>
                                 <div class="col-md-6">
                                     <asp:Label CssClass="small mb-1" ID="Label2" runat="server" Text="Destination Center"></asp:Label>
-                                    <asp:DropDownList CssClass="btn btn-secondary dropdown-toggle" ID="ddlDest" runat="server" DataSourceID="SqlDataSource3" DataTextField="address" DataValueField="distributerID">
+                                    <asp:DropDownList CssClass="btn btn-secondary dropdown-toggle" ID="ddlDest" runat="server" DataSourceID="SqlDataSource3" DataTextField="address" DataValueField="address">
                                     </asp:DropDownList>
                                     <asp:SqlDataSource ID="SqlDataSource3" runat="server" ConnectionString="<%$ ConnectionStrings:con %>" SelectCommand="SELECT [address], [distributerID] FROM [distributionCenters] WHERE ([city] = @city)">
                                         <SelectParameters>
@@ -47,8 +47,12 @@
                                         </SelectParameters>
                                     </asp:SqlDataSource>
                                 </div>
+                                <div class="col-md-6">
+                                    <br />
+                                    <asp:TextBox ID="TextBox2" runat="server" type="date"></asp:TextBox>
+
+                                </div>
                             </div>
-                            <asp:TextBox ID="TextBox2" runat="server" type="date"></asp:TextBox>
                         </div>
                         <asp:Button ID="priceCalc" class="btn-success" runat="server" Text="Calculate" OnClick="priceCalc_Click" />
                     </div>

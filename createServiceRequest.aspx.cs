@@ -16,7 +16,14 @@ namespace TripShip
         string strcon = ConfigurationManager.ConnectionStrings["con"].ConnectionString;
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (!Page.IsPostBack)
+            {
+                if (Session["UserID"] == null)
+                {
+                    Response.Write("You are not logged in. Redirecting to login. . .");
+                    Response.Redirect("userlogin.aspx");
+                }
+            }
         }
 
         protected void btnSubmit_Click(object sender, EventArgs e)
@@ -30,10 +37,9 @@ namespace TripShip
 
                 }
 
-                SqlCommand cmd = new SqlCommand("INSERT INTO service(customerID,TrackingID,query,response) values(" + Session["UserID"] + "," + ddlTrackingId.SelectedValue + ",'" + TextBox1.Text + "')", con);
-                SqlDataAdapter sda = new SqlDataAdapter(cmd);
-                DataTable dt = new DataTable();
-                sda.Fill(dt);
+                SqlCommand cmd = new SqlCommand("INSERT INTO service(customerID,TrackingID,query) values(" + Session["UserID"] + "," + ddlTrackingId.SelectedValue + ",'" + TextBox1.Text + "')", con);
+                cmd.ExecuteNonQuery();
+                Response.Redirect(Request.RawUrl);
             }
             catch (Exception ex)
             {

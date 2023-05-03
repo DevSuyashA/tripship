@@ -90,7 +90,7 @@ namespace TripShip
                 }
                 dr.Close();
 
-                cmd.CommandText = "insert into Transaction(customerID, travellersID, trackingID, paymentStatus, amount) values('" + Session["UserID"] +"','" + travellersID +"','" + Session["TrackingID"] +"','Paid','" + Session["amount"] +"')";
+                cmd.CommandText = "insert into [Transaction](customerID, travellersID, trackingID, paymentStatus, amount) values('" + Session["UserID"] +"','" + travellersID +"','" + Session["TrackingID"] +"','Paid','" + Session["amount"] +"')";
                 cmd.ExecuteNonQuery();
                 cmd.CommandText= "Update parcelTracking set paymentStatus = 'Paid' where TrackingID = '" + Session["TrackingID"] + "'";
                 cmd.ExecuteNonQuery();

@@ -11,7 +11,7 @@
         <div class="col">
 
 
-            <asp:Repeater ID="rParcelInfo" runat="server" OnItemCommand="rParcelInfo_ItemCommand" DataSourceID="SqlDataSource1">
+            <asp:Repeater ID="rParcelInfo" runat="server" OnItemDataBound="rParcelInfo_ItemDataBound" OnItemCommand="rParcelInfo_ItemCommand" DataSourceID="SqlDataSource1">
                 <HeaderTemplate>
                     <table class="table data-table-export table-hover nowrap">
                         <thead>
@@ -20,6 +20,7 @@
                                 <th>Weight (in Kg)</th>
                                 <th>Amount</th>
                                 <th>Status</th>
+                                <th>Payment Status</th>
                                 <th>Destination City</th>
                                 <th>Destination Center</th>
                                 <th>OTP</th>
@@ -33,7 +34,8 @@
                         <td class="table-plus"><%# Eval("parcelName") %> </td>
                         <td><%# Eval("weight") %></td>
                         <td><asp:Label runat="server" ID="lblAmount" Text='<%# Eval("price") %>'></asp:Label></td>
-                        <td><%# Eval("parcelStatus") %></td>
+                        <td><asp:Label runat="server" ID="lblParcelStatus" Text='<%# Eval("parcelStatus") %>'></asp:Label></td>
+                        <td><asp:Label runat="server" ID="lblPaymentStatus" Text='<%# Eval("paymentStatus") %>'></asp:Label></td>
                         <td><%# Eval("destCity") %></td>
                         <td><%# Eval("destDistributionCenter") %></td>
                         <td><%# Eval("otp") %></td>
@@ -45,7 +47,7 @@
 </table>
                 </FooterTemplate>
             </asp:Repeater>
-            <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT [price], [destCity], [destDistributionCenter], [weight], [otp], [TrackingID], [parcelName], [parcelStatus] FROM [parcelTracking] WHERE ([customerID] = @customerID)">
+            <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT [price], [destCity], [destDistributionCenter], [weight], [otp], [TrackingID], [parcelName],[paymentStatus] ,[parcelStatus] FROM [parcelTracking] WHERE ([customerID] = @customerID)">
                 <SelectParameters>
                     <asp:SessionParameter Name="customerID" SessionField="UserID" Type="Int32" />
                 </SelectParameters>
