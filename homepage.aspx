@@ -55,7 +55,7 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-4">
+                <div class="col-md-6">
                     <center>
                         <a href="#">
                             <img width="150px" src="imgs/notification.png" /><br />
@@ -66,7 +66,7 @@
                         <p class="text-center">Sign Up to Book Pet Buddies or Consult a Vet.</p>
                     </center>
                 </div>
-                <div class="col-md-4">
+                <%--<div class="col-md-4">
                     <center>
                         <a href='<%= url %>'>
                             <img width="150px" src="imgs/money.png" />
@@ -75,7 +75,7 @@
                         </a>
                         <p class="text-center">See your Payments</p>
                     </center>
-                </div>
+                </div>--%>
                 <%--  <div class="col-md-4" runat="server" Id="viewmyPayments">
                 <center>
                 <a href="pbPayment.aspx">
@@ -89,7 +89,7 @@
                 </center>
                 </div> --%>
 
-                <div class="col-md-4">
+                <div class="col-md-6">
                     <center>
                         <img width="150px" src="imgs/library.png" />
                         <br />

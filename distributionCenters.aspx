@@ -59,9 +59,9 @@
                                                                 <div class="row">
                                                                     <div class="col-12">
                                                                         Opening Time -
-                                                                            <asp:Label ID="Label12" runat="server" Font-Bold="True" Font-Italic="True" Font-Size="Smaller" Text='<%# Eval("openingTime") %>'></asp:Label>
+                                                                            <asp:Label ID="Label12" runat="server" Font-Bold="True" Font-Italic="True" Font-Size="Smaller" Text='<%# Convert.ToDateTime( Eval("openingTime")).ToString("hh:mm tt") %>'></asp:Label>
                                                                         &nbsp;| <span><span>&nbsp;</span>Closing Time - </span>
-                                                                    <asp:Label ID="Label4" runat="server" Font-Bold="True" Text='<%# Eval("closingTime") %>'></asp:Label>
+                                                                    <asp:Label ID="Label4" runat="server" Font-Bold="True" Text='<%# Convert.ToDateTime( Eval("closingTime")).ToString("hh:mm tt") %>'></asp:Label>
 
                                                                     </div>
                                                                 </div>

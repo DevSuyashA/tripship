@@ -78,7 +78,7 @@ namespace TripShip
             else if (Session["role"].ToString() == "traveller")
             {
                 MultiView1.ActiveViewIndex = 2;
-                SqlCommand cmd = new SqlCommand("SELECT p.* FROM parcelTracking p INNER JOIN journeyLog j on p.sourceCity=j.sourceCity and p.destCity  = j.destinationCity where p.journeyID=0 and DATEDIFF(day,p.maxDate,j.endDateTime)>1", con);
+                SqlCommand cmd = new SqlCommand("SELECT p.* FROM parcelTracking p INNER JOIN journeyLog j on p.sourceCity=j.sourceCity and p.destCity  = j.destinationCity where p.TravellersID=0 and DATEDIFF(day,p.maxDate,j.endDateTime)>1", con);
                 SqlDataAdapter sda = new SqlDataAdapter(cmd);
                 DataTable dt = new DataTable();
                 sda.Fill(dt);
