@@ -39,7 +39,7 @@
                                 </div>
                                 <div class="col-md-6">
                                     <asp:Label CssClass="small mb-1" ID="Label2" runat="server" Text="Destination Center"></asp:Label>
-                                    <asp:DropDownList CssClass="btn btn-secondary dropdown-toggle" ID="ddlDest" runat="server" DataSourceID="SqlDataSource3" DataTextField="address" DataValueField="address">
+                                    <asp:DropDownList CssClass="btn btn-secondary dropdown-toggle" ID="ddlDest" runat="server" DataSourceID="SqlDataSource3" DataTextField="address" DataValueField="distributerID">
                                     </asp:DropDownList>
                                     <asp:SqlDataSource ID="SqlDataSource3" runat="server" ConnectionString="<%$ ConnectionStrings:con %>" SelectCommand="SELECT [address], [distributerID] FROM [distributionCenters] WHERE ([city] = @city)">
                                         <SelectParameters>

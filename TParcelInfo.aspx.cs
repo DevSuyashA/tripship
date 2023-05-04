@@ -13,10 +13,33 @@ namespace TripShip
     public partial class TParcelInfo : System.Web.UI.Page
     {
         string strcon = ConfigurationManager.ConnectionStrings["con"].ConnectionString;
+        int weight = 0;
         protected void Page_Load(object sender, EventArgs e)
         {
-            getNewParcelInfo();
-            getAccParcelInfo();
+            if (!Page.IsPostBack)
+            {
+                getAccParcelInfo();
+                getJourneyDetails();
+                getDestination();
+                getDate();
+            }
+        }
+
+        private void getJourneyDetails()
+        {
+            SqlConnection con = new SqlConnection(strcon);
+            if (con.State == ConnectionState.Closed)
+            {
+                con.Open();
+
+            }
+            SqlCommand cmd = new SqlCommand("SELECT journeyID, sourceCity FROM journeyLog WHERE (TravellersID = '"+Session["UserID"]+ "') AND (GETDATE() < endDateTime)", con);
+            SqlDataAdapter sda = new SqlDataAdapter(cmd);
+            DataTable dt = new DataTable();
+            sda.Fill(dt);
+            ddlSource.DataSource = dt;
+            ddlSource.DataBind();
+            
         }
 
         private void getAccParcelInfo()
@@ -37,13 +60,22 @@ namespace TripShip
 
         private void getNewParcelInfo()
         {
+            DateTime dateTime = DateTime.Now;
             SqlConnection con = new SqlConnection(strcon);
             if (con.State == ConnectionState.Closed)
             {
                 con.Open();
 
             }
-            SqlCommand cmd = new SqlCommand("SELECT p.TrackingID, p.sourceDistributionCenter, p.weight, p.Volume, p.parcelName, p.price, j.journeyID AS Expr1 FROM parcelTracking AS p INNER JOIN journeyLog AS j ON p.sourceCity = j.sourceCity AND p.destCity = j.destinationCity AND p.weight < j.acceptableWeight WHERE (j.TravellersID = '" + Session["UserID"] + "') AND (p.parcelStatus = 'Pending')", con);
+            SqlCommand cmd = new SqlCommand("Select acceptableWeight, endDateTime from journeyLog where journeyID = '" + ddlDate.SelectedValue + "'",con);
+            SqlDataReader dr = cmd.ExecuteReader();
+            if (dr.Read())
+            {
+                weight = dr.GetInt32(0);
+                dateTime = dr.GetDateTime(1);
+            }
+            dr.Close();
+            cmd = new SqlCommand("select TrackingID, sourceDistributionCenter, weight, Volume, parcelName, price from parcelTracking where sourceCity = '"+ddlSource.SelectedValue+"' and destCity = '"+ddlDest.SelectedValue+"' and parcelStatus = 'Pending' and weight<'"+weight+"' ", con);
             SqlDataAdapter sda = new SqlDataAdapter(cmd);
             DataTable dt = new DataTable();
             sda.Fill(dt);
@@ -61,7 +93,7 @@ namespace TripShip
                     con.Open();
 
                 }
-                SqlCommand cmd = new SqlCommand("Update parcelTracking set parcelStatus = 'Accepted', TravellersID='" + Session["UserID"] + "' where TrackingID='" + e.CommandArgument + "'", con);
+                SqlCommand cmd = new SqlCommand("Update parcelTracking set parcelStatus = 'Accepted', TravellersID='" + Session["UserID"] + "',journeyID='"+ddlDate.SelectedValue+"'  where TrackingID='" + e.CommandArgument + "'", con);
                 cmd.ExecuteNonQuery();
                 Response.Write("Parcel Accepted");
                 Response.Redirect(Request.RawUrl);
@@ -101,6 +133,58 @@ namespace TripShip
                     collectParcel.Visible = false;
                 }
             }
+        }
+
+        protected void ddlSource_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
+            getDestination();
+            getDate();
+            getNewParcelInfo();
+
+        }
+
+        private void getDestination()
+        {
+            SqlConnection con = new SqlConnection(strcon);
+            if (con.State == ConnectionState.Closed)
+            {
+                con.Open();
+            }
+            SqlCommand cmd = new SqlCommand("SELECT journeyID, destinationCity FROM journeyLog WHERE (TravellersID = '" + Session["UserID"] + "') AND sourceCity = '" + ddlSource.SelectedValue + "' AND (GETDATE() < endDateTime)", con);
+            SqlDataAdapter sda = new SqlDataAdapter(cmd);
+            DataTable dt = new DataTable();
+            sda.Fill(dt);
+            ddlDest.DataSource = dt;
+            ddlDest.DataBind();
+        }
+
+        protected void ddlDest_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
+            getDate();
+        }
+
+        private void getDate()
+        {
+            SqlConnection con = new SqlConnection(strcon);
+            if (con.State == ConnectionState.Closed)
+            {
+                con.Open();
+
+            }
+            SqlCommand cmd = new SqlCommand("SELECT journeyID, startDateTime FROM journeyLog WHERE (TravellersID = '" + Session["UserID"] + "') AND sourceCity = '" + ddlSource.SelectedValue + "' AND destinationCity = '" + ddlDest.SelectedValue + "' AND (GETDATE() < endDateTime)", con);
+            SqlDataAdapter sda = new SqlDataAdapter(cmd);
+            DataTable dt = new DataTable();
+            sda.Fill(dt);
+            ddlDate.DataSource = dt;
+            ddlDate.DataBind();
+            getNewParcelInfo();
+        }
+
+        protected void ddlDate_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            getNewParcelInfo();
         }
     }
 }

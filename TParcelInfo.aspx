@@ -9,6 +9,19 @@
             <center>
                 <h2>New Parcels</h2>
             </center>
+            <h4>Select the journey</h4>
+            <div class="row">
+                <div class="col-md-6">
+                    <asp:DropDownList ID="ddlSource" runat="server" DataTextField="sourceCity" DataValueField="sourceCity" OnSelectedIndexChanged="ddlSource_SelectedIndexChanged" CssClass="form-control" AutoPostBack="true"></asp:DropDownList>
+                    <asp:DropDownList ID="ddlDest" runat="server" DataTextField="destinationCity" DataValueField="destinationCity" OnSelectedIndexChanged="ddlDest_SelectedIndexChanged" CssClass="form-control" AutoPostBack="true"></asp:DropDownList>
+                    <asp:DropDownList ID="ddlDate" runat="server" DataTextField="startDateTime" DataValueField="journeyID" CssClass="form-control" AutoPostBack="true" OnSelectedIndexChanged="ddlDate_SelectedIndexChanged"></asp:DropDownList>
+                    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:con %>" SelectCommand="SELECT journeyID, sourceCity, destinationCity, startDateTime, endDateTime, acceptableWeight, TravellersID FROM journeyLog WHERE (TravellersID = @TravellersID)">
+                        <SelectParameters>
+                            <asp:Parameter DefaultValue="" Name="TravellersID" />
+                        </SelectParameters>
+                    </asp:SqlDataSource>
+                </div>
+            </div>
             <asp:Repeater ID="rParcelInfo" runat="server" OnItemCommand="rParcelInfo_ItemCommand">
                 <HeaderTemplate>
                     <table class="table data-table-export table-hover nowrap">
