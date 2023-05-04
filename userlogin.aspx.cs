@@ -39,6 +39,7 @@ namespace TripShip
                     rdbVet.Checked = false;
 
                     SqlCommand cmd = new SqlCommand("select * from customers where c_username='" + TextBox1.Text.Trim() + "' AND Password='" + TextBox2.Text.Trim() + "'", con);
+
                     SqlDataReader dr = cmd.ExecuteReader();
                     //TextBox2.Text.Trim();
 
@@ -104,14 +105,13 @@ namespace TripShip
                         else
                         {
 
-                                                       
-                                Session["role"] = "traveller";
-                                Session["UserID"] = dr.GetInt32(0).ToString();
-                                Session["username"] = dr.GetString(1);
-                                Response.Write("<script>alert('" + dr.GetValue(1).ToString() + "');</script>");
-                                dr.Close();
-                                Response.Redirect("homepage.aspx");
-                            
+
+                            Session["role"] = "traveller";
+                            Session["UserID"] = dr.GetInt32(0).ToString();
+                            Session["username"] = dr.GetString(1);
+                            Response.Write("<script>alert('" + dr.GetValue(1).ToString() + "');</script>");
+                            Response.Redirect("homepage.aspx");
+
                         }
                     }
                     else

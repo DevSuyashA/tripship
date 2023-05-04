@@ -24,7 +24,7 @@ namespace TripShip
 
                         Button1.Enabled = true;
                         Button1.Text = "Resolve Queries";
-                        Button2.Enabled = false;
+                        //Button2.Enabled = false;
                         Button6.Text = "User Details";
                         //Buttom3Enabled = false;
                     }
@@ -44,7 +44,7 @@ namespace TripShip
                     else
                     {
                         Button1.Enabled = true;
-                        Button2.Enabled = true;
+                        //Button2.Enabled = true;
                         Button3.Enabled = true;
                         url = "Payments.aspx";
                         //viewmyPayments.Visible = false;
@@ -56,7 +56,7 @@ namespace TripShip
             catch (Exception ex)
             {
                 Button1.Enabled = true;
-                Button2.Enabled = true;
+                //Button2.Enabled = true;
                 //Buttom3Enabled = true;
             }
         }

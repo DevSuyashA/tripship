@@ -1,5 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
+using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -9,11 +12,18 @@ namespace TripShip
 {
     public partial class Site1 : System.Web.UI.MasterPage
     {
+        string strcon = ConfigurationManager.ConnectionStrings["con"].ConnectionString;
+        SqlConnection con;
+        SqlCommand cmd;
         protected void Page_Load(object sender, EventArgs e)
         {
             try
             {
-
+                con = new SqlConnection(strcon);
+                if (con.State == ConnectionState.Closed)
+                {
+                    con.Open();
+                }
                 if (Session["role"] != null)
                 {
 
@@ -112,6 +122,42 @@ namespace TripShip
 
         protected void LinkButton3_Click(object sender, EventArgs e)
         {
+            if (Session["role"] != null)
+            {
+                string tableName = "";
+                string columnName = "";
+                int userID = Convert.ToInt32( Session["UserID"]);
+                if (Session["role"].ToString() == "user")
+                {
+                    tableName = "customers";
+                    columnName = "customerID";
+                    
+                }
+                else if (Session["role"].ToString().Equals("dCenter"))
+                {
+                    tableName = "distributionCenters";
+                    columnName = "distributerID";
+                }
+                else if (Session["role"].ToString().Equals("traveller"))
+                {
+                    tableName = "travellers";
+                    columnName = "TravellersID";
+                }
+                else if (Session["role"].ToString().Equals("admin"))
+                {
+                    tableName = "Admin";
+                    columnName = "AdminID";
+                    userID = Convert.ToInt32(Session["adminID"]);
+                }
+                cmd = con.CreateCommand();
+                cmd.CommandText = "UPDATE " + tableName + " set lastLogin=GETDATE()  where " + columnName + "= '" + userID + "'";
+                cmd.ExecuteNonQuery();
+                
+            }
+            else
+            {
+                Response.Redirect("userlogin.aspx");
+            }
             Session.Clear();
             Response.Redirect("homepage.aspx");
         }
